@@ -1,0 +1,6 @@
+{
+  "name": "Jan Samadhan",
+  "description": "Jharkhand Citizen Problem & Technical Solution Portal connecting grassroots civic challenges with university research labs and state innovation.",
+  "requestFramePermissions": ["microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

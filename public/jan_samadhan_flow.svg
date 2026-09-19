@@ -1,0 +1,275 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 920" width="1400" height="920" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="1400" height="920" fill="#FAFAF8"/>
+
+  <!-- Tricolor top ribbon -->
+  <rect x="0" y="0" width="466" height="5" fill="#FF9933"/>
+  <rect x="466" y="0" width="468" height="5" fill="#FFFFFF" stroke="#E0D4BF" stroke-width="0.5"/>
+  <rect x="934" y="0" width="466" height="5" fill="#138808"/>
+
+  <!-- TITLE -->
+  <text x="700" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#0A1F35" letter-spacing="-0.3">JAN SAMADHAN — Complete Citizen Grievance Resolution Flow</text>
+  <text x="700" y="56" text-anchor="middle" font-size="11" fill="#8C7C62" letter-spacing="0.08em">GOVERNMENT OF JHARKHAND · DEPT. OF HIGHER &amp; TECHNICAL EDUCATION · RIGHT TO PUBLIC SERVICE ACT, 2011</text>
+  <line x1="60" y1="66" x2="1340" y2="66" stroke="#D4C4A8" stroke-width="1"/>
+
+  <!-- LEGEND -->
+  <g transform="translate(60, 76)">
+    <rect x="0" y="0" width="12" height="12" rx="2" fill="#FEF0E7" stroke="#E8590A" stroke-width="1.5"/>
+    <text x="17" y="10" font-size="9" fill="#5C5042" font-family="'Courier New', monospace" letter-spacing="0.06em">INTAKE / CLOSURE</text>
+    <rect x="130" y="0" width="12" height="12" rx="2" fill="#F0FFF4" stroke="#138808" stroke-width="1.5"/>
+    <text x="147" y="10" font-size="9" fill="#5C5042" font-family="'Courier New', monospace" letter-spacing="0.06em">LAB / FIELD</text>
+    <rect x="240" y="0" width="12" height="12" rx="2" fill="#FFFBF0" stroke="#B45309" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="257" y="10" font-size="9" fill="#5C5042" font-family="'Courier New', monospace" letter-spacing="0.06em">TIME INDICATOR</text>
+    <rect x="380" y="0" width="12" height="12" rx="2" fill="#F5F5F3" stroke="#5C5042" stroke-width="1"/>
+    <text x="397" y="10" font-size="9" fill="#5C5042" font-family="'Courier New', monospace" letter-spacing="0.06em">PROCESS STEP</text>
+    <polygon points="500,0 506,6 500,12 494,6" fill="#F5F5F3" stroke="#5C5042" stroke-width="1"/>
+    <text x="515" y="10" font-size="9" fill="#5C5042" font-family="'Courier New', monospace" letter-spacing="0.06em">DECISION</text>
+  </g>
+
+  <!-- SWIM LANE BARS -->
+  <rect x="0" y="100" width="8" height="80" fill="#FF9933" opacity="0.6" rx="2"/>
+  <rect x="0" y="210" width="8" height="90" fill="#5C5042" opacity="0.4" rx="2"/>
+  <rect x="0" y="340" width="8" height="110" fill="#138808" opacity="0.6" rx="2"/>
+  <rect x="0" y="510" width="8" height="110" fill="#B91C1C" opacity="0.4" rx="2"/>
+  <text x="6" y="155" text-anchor="middle" font-size="8" fill="#E8590A" font-weight="700" transform="rotate(-90 6 155)" letter-spacing="0.08em">INTAKE</text>
+  <text x="6" y="260" text-anchor="middle" font-size="8" fill="#5C5042" font-weight="700" transform="rotate(-90 6 260)" letter-spacing="0.08em">ROUTING</text>
+  <text x="6" y="400" text-anchor="middle" font-size="8" fill="#138808" font-weight="700" transform="rotate(-90 6 400)" letter-spacing="0.08em">RESOLUTION</text>
+  <text x="6" y="565" text-anchor="middle" font-size="8" fill="#B91C1C" font-weight="700" transform="rotate(-90 6 565)" letter-spacing="0.08em">ESCALATION</text>
+
+  <!-- ROW 1 -->
+  <!-- Citizen -->
+  <circle cx="80" cy="130" r="18" fill="#0A1F35"/>
+  <circle cx="80" cy="123" r="9" fill="#FDDDC8"/>
+  <path d="M63,148 Q80,136 97,148" fill="#FF9933"/>
+  <path d="M68,148 L92,148 L94,165 L66,165 Z" fill="#FF9933"/>
+  <line x1="68" y1="148" x2="92" y2="162" stroke="#138808" stroke-width="2"/>
+  <text x="80" y="180" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">CITIZEN</text>
+  <text x="80" y="192" text-anchor="middle" font-size="9" fill="#8C7C62">Jharkhand</text>
+
+  <line x1="120" y1="145" x2="158" y2="145" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Voice Filing -->
+  <rect x="158" y="110" width="200" height="70" rx="6" fill="#FEF0E7" stroke="#E8590A" stroke-width="2"/>
+  <text x="258" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Voice / Text Problem Filing</text>
+  <text x="258" y="148" text-anchor="middle" font-size="9.5" fill="#5C5042">Santali · Ho · Mundari · Khortha</text>
+  <text x="258" y="163" text-anchor="middle" font-size="9.5" fill="#5C5042">Nagpuri · Hindi — any dialect</text>
+
+  <line x1="358" y1="145" x2="398" y2="145" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- AI Transcription -->
+  <rect x="398" y="110" width="200" height="70" rx="6" fill="#F5F5F3" stroke="#5C5042" stroke-width="1.5"/>
+  <text x="498" y="131" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">AI Dialect Transcription</text>
+  <text x="498" y="147" text-anchor="middle" font-size="9.5" fill="#5C5042">and Technical Need Extraction</text>
+  <text x="498" y="163" text-anchor="middle" font-size="9" fill="#8C7C62">96.4% avg confidence · NLP model</text>
+
+  <line x1="598" y1="145" x2="638" y2="145" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Docket Generated -->
+  <rect x="638" y="110" width="210" height="70" rx="6" fill="#FEF0E7" stroke="#E8590A" stroke-width="2.5"/>
+  <text x="743" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Docket ID Generated</text>
+  <text x="743" y="149" text-anchor="middle" font-size="10" fill="#E8590A" font-family="'Courier New',monospace" font-weight="700">JAN-RNC-2025-0814</text>
+  <text x="743" y="166" text-anchor="middle" font-size="9" fill="#8C7C62">Unique case ref · Time-stamped</text>
+
+  <line x1="848" y1="145" x2="900" y2="145" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Evidence -->
+  <rect x="900" y="110" width="180" height="70" rx="6" fill="#F5F5F3" stroke="#5C5042" stroke-width="1.5"/>
+  <text x="990" y="131" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Evidence Attached</text>
+  <text x="990" y="147" text-anchor="middle" font-size="9.5" fill="#5C5042">Photo · GPS geotag · Test report</text>
+  <text x="990" y="163" text-anchor="middle" font-size="9" fill="#8C7C62">Optional but recommended</text>
+
+  <!-- Down from Evidence -->
+  <line x1="990" y1="180" x2="990" y2="218" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- ROW 2 -->
+  <!-- SMS -->
+  <rect x="860" y="218" width="260" height="70" rx="6" fill="#FEF0E7" stroke="#E8590A" stroke-width="2"/>
+  <text x="990" y="240" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">SMS Acknowledgement</text>
+  <text x="990" y="256" text-anchor="middle" font-size="9.5" fill="#5C5042">Sent to citizen within 24 hours</text>
+  <text x="990" y="272" text-anchor="middle" font-size="9" fill="#8C7C62">Reference code · Lab name · Next steps</text>
+
+  <line x1="860" y1="253" x2="820" y2="253" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a2)"/>
+
+  <!-- DIC -->
+  <rect x="590" y="218" width="230" height="70" rx="6" fill="#F5F5F3" stroke="#5C5042" stroke-width="1.5"/>
+  <text x="705" y="240" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">District Innovation Cell (DIC)</text>
+  <text x="705" y="256" text-anchor="middle" font-size="9.5" fill="#5C5042">24-Hour Intake Triage</text>
+  <text x="705" y="272" text-anchor="middle" font-size="9" fill="#8C7C62">24 districts · Category classification</text>
+
+  <line x1="590" y1="253" x2="550" y2="253" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a2)"/>
+
+  <!-- Lab Matched -->
+  <rect x="330" y="218" width="220" height="70" rx="6" fill="#F0FFF4" stroke="#138808" stroke-width="2"/>
+  <text x="440" y="239" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">University Lab Matched</text>
+  <text x="440" y="255" text-anchor="middle" font-size="9.5" fill="#138808" font-weight="600">within 7 Days</text>
+  <text x="440" y="271" text-anchor="middle" font-size="9" fill="#5C5042">BIT Mesra · ISM Dhanbad · NIT JSR + 39</text>
+
+  <!-- Down from Lab Matched -->
+  <line x1="440" y1="288" x2="440" y2="348" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- ROW 3 -->
+  <!-- Connector from 440,348 to Lab Research box -->
+  <polyline points="440,348 440,388 300,388" fill="none" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a2)"/>
+
+  <!-- Lab Research -->
+  <rect x="60" y="348" width="240" height="80" rx="6" fill="#F0FFF4" stroke="#138808" stroke-width="2"/>
+  <text x="180" y="371" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Lab Research and Prototype</text>
+  <text x="180" y="387" text-anchor="middle" font-size="9.5" fill="#5C5042">Material testing · Bench trials</text>
+  <text x="180" y="401" text-anchor="middle" font-size="9.5" fill="#5C5042">Field calibration · Safety review</text>
+  <text x="180" y="415" text-anchor="middle" font-size="9" fill="#8C7C62">Nodal Scientist + student team</text>
+
+  <line x1="300" y1="388" x2="340" y2="388" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Avg Time -->
+  <rect x="340" y="355" width="160" height="68" rx="6" fill="#FFFBF0" stroke="#B45309" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <circle cx="365" cy="376" r="12" fill="none" stroke="#B45309" stroke-width="1.5"/>
+  <line x1="365" y1="376" x2="365" y2="368" stroke="#B45309" stroke-width="1.5"/>
+  <line x1="365" y1="376" x2="371" y2="379" stroke="#B45309" stroke-width="1.5"/>
+  <text x="410" y="372" text-anchor="middle" font-size="10" fill="#B45309" font-weight="700">Avg. Resolution</text>
+  <text x="410" y="388" text-anchor="middle" font-size="17" fill="#B45309" font-weight="700" font-family="'Courier New',monospace">~41d</text>
+  <text x="420" y="408" text-anchor="middle" font-size="8.5" fill="#8C7C62">Report to Field Prototype</text>
+
+  <line x1="500" y1="388" x2="540" y2="388" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Field Pilot -->
+  <rect x="540" y="355" width="220" height="68" rx="6" fill="#F0FFF4" stroke="#138808" stroke-width="2"/>
+  <text x="650" y="374" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Field Pilot Deployed</text>
+  <text x="650" y="390" text-anchor="middle" font-size="9.5" fill="#5C5042">Installed in Village / Ward</text>
+  <text x="650" y="406" text-anchor="middle" font-size="9" fill="#8C7C62">Avg cost: Rs 420/unit · Locally serviceable</text>
+
+  <line x1="760" y1="389" x2="800" y2="389" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Decision diamond -->
+  <polygon points="860,349 940,389 860,429 780,389" fill="#F5F5F3" stroke="#0A1F35" stroke-width="2"/>
+  <text x="860" y="384" text-anchor="middle" font-size="10" font-weight="700" fill="#0A1F35">Citizen</text>
+  <text x="860" y="398" text-anchor="middle" font-size="10" font-weight="700" fill="#0A1F35">Satisfied?</text>
+
+  <!-- YES path -->
+  <text x="960" y="385" font-size="11" font-weight="700" fill="#138808">Y</text>
+  <line x1="940" y1="389" x2="990" y2="389" stroke="#138808" stroke-width="1.5" marker-end="url(#a3)"/>
+
+  <!-- Closure -->
+  <rect x="990" y="355" width="220" height="68" rx="6" fill="#FEF0E7" stroke="#E8590A" stroke-width="2.5"/>
+  <text x="1100" y="376" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Closure and Certification</text>
+  <text x="1100" y="392" text-anchor="middle" font-size="9.5" fill="#5C5042">Governor Innovation Roll · State award</text>
+  <text x="1100" y="407" text-anchor="middle" font-size="9" fill="#8C7C62">Blueprint on State Innovation Portal</text>
+
+  <line x1="1210" y1="389" x2="1260" y2="389" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Feedback box -->
+  <rect x="1260" y="355" width="100" height="68" rx="6" fill="#F5F5F3" stroke="#5C5042" stroke-width="1.5"/>
+  <text x="1310" y="377" text-anchor="middle" font-size="10" font-weight="700" fill="#0A1F35">Citizen</text>
+  <text x="1310" y="391" text-anchor="middle" font-size="10" font-weight="700" fill="#0A1F35">Feedback</text>
+  <text x="1310" y="406" text-anchor="middle" font-size="9" fill="#B45309">4.8 star avg</text>
+
+  <!-- Feedback loop -->
+  <polyline points="1310,423 1310,470 80,470 80,200" fill="none" stroke="#8C7C62" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#a4)"/>
+  <text x="700" y="483" text-anchor="middle" font-size="9" fill="#8C7C62" font-style="italic" letter-spacing="0.05em">Feedback Loop — Citizen Portal Updated with Rating and Resolution Status</text>
+
+  <!-- NO path -->
+  <text x="856" y="444" font-size="11" font-weight="700" fill="#B91C1C">N</text>
+  <line x1="860" y1="429" x2="860" y2="520" stroke="#B91C1C" stroke-width="1.5" marker-end="url(#a5)"/>
+
+  <!-- Appellate -->
+  <rect x="720" y="520" width="280" height="75" rx="6" fill="#FFF5F5" stroke="#B91C1C" stroke-width="1.5"/>
+  <text x="860" y="542" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Nodal Appellate Authority</text>
+  <text x="860" y="558" text-anchor="middle" font-size="9.5" fill="#5C5042">Sub-Appellate Authority Review</text>
+  <text x="860" y="573" text-anchor="middle" font-size="9" fill="#8C7C62">Re-investigation · 15-day escalation window</text>
+  <text x="860" y="587" text-anchor="middle" font-size="9" fill="#8C7C62">Deputy Commissioner oversight</text>
+
+  <line x1="1000" y1="557" x2="1060" y2="557" stroke="#0A1F35" stroke-width="1.5" marker-end="url(#a1)"/>
+
+  <!-- Final Resolution -->
+  <rect x="1060" y="520" width="220" height="75" rx="6" fill="#FEF0E7" stroke="#E8590A" stroke-width="2"/>
+  <text x="1170" y="548" text-anchor="middle" font-size="11" font-weight="700" fill="#0A1F35">Final Resolution</text>
+  <text x="1170" y="564" text-anchor="middle" font-size="9.5" fill="#5C5042">and Re-deployment</text>
+  <text x="1170" y="580" text-anchor="middle" font-size="9" fill="#8C7C62">Revised prototype · Mandatory closure</text>
+  <text x="1170" y="593" text-anchor="middle" font-size="9" fill="#8C7C62">Escalated to Secretary if unresolved</text>
+
+  <!-- TIMELINE BAND -->
+  <rect x="60" y="636" width="1280" height="44" rx="4" fill="#0A1F35"/>
+
+  <line x1="60" y1="636" x2="60" y2="680" stroke="#F5EFE3" stroke-width="0.5"/>
+  <text x="80" y="653" font-size="9" fill="#FDDDC8" font-family="'Courier New',monospace" font-weight="700">DAY 0</text>
+  <text x="80" y="668" font-size="8.5" fill="rgba(245,239,227,0.6)">Filing</text>
+
+  <line x1="230" y1="636" x2="230" y2="680" stroke="rgba(245,239,227,0.3)" stroke-width="0.5"/>
+  <text x="245" y="653" font-size="9" fill="#FDDDC8" font-family="'Courier New',monospace" font-weight="700">+24 HRS</text>
+  <text x="245" y="668" font-size="8.5" fill="rgba(245,239,227,0.6)">SMS ack + DIC intake</text>
+
+  <line x1="450" y1="636" x2="450" y2="680" stroke="rgba(245,239,227,0.3)" stroke-width="0.5"/>
+  <text x="465" y="653" font-size="9" fill="#FDDDC8" font-family="'Courier New',monospace" font-weight="700">+7 DAYS</text>
+  <text x="465" y="668" font-size="8.5" fill="rgba(245,239,227,0.6)">Lab matched + assigned</text>
+
+  <line x1="700" y1="636" x2="700" y2="680" stroke="rgba(245,239,227,0.3)" stroke-width="0.5"/>
+  <text x="715" y="653" font-size="9" fill="#FDDDC8" font-family="'Courier New',monospace" font-weight="700">+20 DAYS</text>
+  <text x="715" y="668" font-size="8.5" fill="rgba(245,239,227,0.6)">Bench prototype ready</text>
+
+  <line x1="960" y1="636" x2="960" y2="680" stroke="#FF9933" stroke-width="1.5"/>
+  <text x="970" y="653" font-size="9" fill="#FF9933" font-family="'Courier New',monospace" font-weight="700">~41 DAYS</text>
+  <text x="970" y="668" font-size="8.5" fill="rgba(245,239,227,0.6)">Field pilot deployed (avg)</text>
+
+  <line x1="1200" y1="636" x2="1200" y2="680" stroke="rgba(245,239,227,0.3)" stroke-width="0.5"/>
+  <text x="1210" y="653" font-size="9" fill="#FDDDC8" font-family="'Courier New',monospace" font-weight="700">+15 MORE</text>
+  <text x="1210" y="668" font-size="8.5" fill="rgba(245,239,227,0.6)">Appellate if escalated</text>
+
+  <!-- Timeline label + progress bar -->
+  <text x="62" y="698" font-size="9" fill="#8C7C62" font-family="'Courier New',monospace" letter-spacing="0.08em">RESOLUTION TIMELINE</text>
+  <rect x="60" y="704" width="900" height="6" rx="3" fill="#D0F0DC"/>
+  <rect x="60" y="704" width="900" height="6" rx="3" fill="url(#pg)"/>
+  <rect x="960" y="704" width="380" height="6" rx="3" fill="#FEE2E2" opacity="0.6"/>
+  <text x="510" y="718" text-anchor="middle" font-size="8.5" fill="#1A5C2E" font-family="'Courier New',monospace">NORMAL RESOLUTION PATH</text>
+  <text x="1150" y="718" text-anchor="middle" font-size="8.5" fill="#B91C1C" font-family="'Courier New',monospace">APPELLATE PATH (if required)</text>
+
+  <!-- STATS ROW -->
+  <rect x="60" y="728" width="1280" height="60" rx="4" fill="#F5EFE3" stroke="#D4C4A8" stroke-width="1"/>
+  <g transform="translate(60,728)">
+    <text x="130" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#0A1F35" font-family="'Courier New',monospace">1,842+</text>
+    <text x="130" y="40" text-anchor="middle" font-size="9" fill="#5C5042" letter-spacing="0.06em">PROBLEMS SOLVED</text>
+    <line x1="240" y1="10" x2="240" y2="50" stroke="#D4C4A8" stroke-width="1"/>
+    <text x="330" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#E8590A" font-family="'Courier New',monospace">42</text>
+    <text x="330" y="40" text-anchor="middle" font-size="9" fill="#5C5042" letter-spacing="0.06em">ACTIVE LABS</text>
+    <line x1="430" y1="10" x2="430" y2="50" stroke="#D4C4A8" stroke-width="1"/>
+    <text x="530" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#1A5C2E" font-family="'Courier New',monospace">~41d</text>
+    <text x="530" y="40" text-anchor="middle" font-size="9" fill="#5C5042" letter-spacing="0.06em">AVG RESOLUTION</text>
+    <line x1="630" y1="10" x2="630" y2="50" stroke="#D4C4A8" stroke-width="1"/>
+    <text x="730" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#0A1F35" font-family="'Courier New',monospace">24</text>
+    <text x="730" y="40" text-anchor="middle" font-size="9" fill="#5C5042" letter-spacing="0.06em">DISTRICTS COVERED</text>
+    <line x1="830" y1="10" x2="830" y2="50" stroke="#D4C4A8" stroke-width="1"/>
+    <text x="940" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#B45309" font-family="'Courier New',monospace">4.8 star</text>
+    <text x="940" y="40" text-anchor="middle" font-size="9" fill="#5C5042" letter-spacing="0.06em">CITIZEN TRUST SCORE</text>
+    <line x1="1040" y1="10" x2="1040" y2="50" stroke="#D4C4A8" stroke-width="1"/>
+    <text x="1160" y="25" text-anchor="middle" font-size="18" font-weight="700" fill="#0A1F35" font-family="'Courier New',monospace">12,480+</text>
+    <text x="1160" y="40" text-anchor="middle" font-size="9" fill="#5C5042" letter-spacing="0.06em">TOTAL DOCKETS FILED</text>
+  </g>
+
+  <!-- FOOTER -->
+  <rect x="0" y="800" width="1400" height="32" fill="#0A1F35"/>
+  <text x="700" y="820" text-anchor="middle" font-size="9" fill="rgba(245,239,227,0.5)" letter-spacing="0.1em">JAN SAMADHAN PORTAL · GOVERNMENT OF JHARKHAND · ISO 27001 CERTIFIED · MeitY GIGW 3.0 COMPLIANT · NIC INFRASTRUCTURE · 2025</text>
+
+  <!-- DEFS -->
+  <defs>
+    <marker id="a1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#0A1F35"/>
+    </marker>
+    <marker id="a2" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <polygon points="8,0 0,3 8,6" fill="#0A1F35"/>
+    </marker>
+    <marker id="a3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#138808"/>
+    </marker>
+    <marker id="a4" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8C7C62"/>
+    </marker>
+    <marker id="a5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#B91C1C"/>
+    </marker>
+    <linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF9933"/>
+      <stop offset="50%" stop-color="#138808"/>
+      <stop offset="100%" stop-color="#1A5C2E"/>
+    </linearGradient>
+  </defs>
+
+</svg>
