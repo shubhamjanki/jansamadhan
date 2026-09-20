@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Background Gradient: Clean daylight veranda atmosphere -->
+    <linearGradient id="cleanSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#042f2e"/>
+      <stop offset="40%" stop-color="#115e59"/>
+      <stop offset="100%" stop-color="#134e4a"/>
+    </linearGradient>
+
+    <!-- Clean Veranda Floor Gradient -->
+    <linearGradient id="verandaFloor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="40%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Terracotta Clay Cylinder Gradient -->
+    <linearGradient id="clayBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9a3412"/>
+      <stop offset="25%" stop-color="#c2410c"/>
+      <stop offset="60%" stop-color="#ea580c"/>
+      <stop offset="90%" stop-color="#9a3412"/>
+      <stop offset="100%" stop-color="#7c2d12"/>
+    </linearGradient>
+
+    <!-- Brass Spigot Gradient -->
+    <linearGradient id="brassTap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="45%" stop-color="#eab308"/>
+      <stop offset="85%" stop-color="#ca8a04"/>
+      <stop offset="100%" stop-color="#854d0e"/>
+    </linearGradient>
+
+    <!-- Pure Crystal Clear Water Stream Gradient -->
+    <linearGradient id="crystalWater" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#bae6fd" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.75"/>
+    </linearGradient>
+
+    <!-- Glass Glow -->
+    <linearGradient id="glassGleam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="30%" stop-color="#38bdf8" stop-opacity="0.2"/>
+      <stop offset="80%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean Veranda Background -->
+  <rect width="800" height="450" fill="url(#cleanSky)"/>
+
+  <!-- Clean Veranda Floor -->
+  <rect y="270" width="800" height="180" fill="url(#verandaFloor)"/>
+  <!-- Floor Tile Lines -->
+  <line x1="0" y1="330" x2="800" y2="330" stroke="#475569" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="390" x2="800" y2="390" stroke="#475569" stroke-width="1" opacity="0.3"/>
+  <line x1="250" y1="270" x2="180" y2="450" stroke="#475569" stroke-width="1" opacity="0.3"/>
+  <line x1="550" y1="270" x2="620" y2="450" stroke="#475569" stroke-width="1" opacity="0.3"/>
+
+  <!-- Healthy Green Plants in Background (Tulsi / Medicinal village plants) -->
+  <g transform="translate(100, 180)">
+    <!-- Terracotta planter pot -->
+    <polygon points="20,70 60,70 52,100 28,100" fill="#9a3412"/>
+    <!-- Lush leaves -->
+    <path d="M 40 70 Q 20 40 10 30 Q 30 35 40 70" fill="#10b981"/>
+    <path d="M 40 70 Q 55 30 70 20 Q 60 45 40 70" fill="#059669"/>
+    <path d="M 40 70 Q 35 15 40 5 Q 48 25 40 70" fill="#34d399"/>
+    <path d="M 40 70 Q 15 50 5 60 Q 25 60 40 70" fill="#047857"/>
+  </g>
+
+  <!-- Filtration Stand / Platform -->
+  <rect x="290" y="270" width="180" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <polygon points="310,320 315,370 295,370 290,320" fill="#0f172a"/>
+  <polygon points="450,320 445,370 465,370 470,320" fill="#0f172a"/>
+
+  <!-- BIT MESRA TERRACOTTA-BIOCHAR FILTER UNIT -->
+  <!-- Lower Chamber (Potable Water Storage Reservoir) -->
+  <rect x="315" y="195" width="130" height="85" rx="10" fill="url(#clayBody)"/>
+  <!-- Highlight and Clay Rim -->
+  <ellipse cx="380" cy="195" rx="65" ry="12" fill="#ea580c"/>
+  <ellipse cx="380" cy="195" rx="60" ry="10" fill="#c2410c"/>
+  <ellipse cx="380" cy="278" rx="65" ry="8" fill="#7c2d12"/>
+
+  <!-- Upper Chamber (Raw Water & Terracotta-Biochar Candles) -->
+  <rect x="325" y="115" width="110" height="80" rx="8" fill="url(#clayBody)"/>
+  <ellipse cx="380" cy="115" rx="55" ry="10" fill="#fb923c"/>
+  <ellipse cx="380" cy="115" rx="50" ry="8" fill="#ea580c"/>
+
+  <!-- Clay Lid with Knob -->
+  <ellipse cx="380" cy="110" rx="57" ry="9" fill="#c2410c"/>
+  <rect x="374" y="94" width="12" height="14" rx="4" fill="#7c2d12"/>
+  <ellipse cx="380" cy="94" rx="10" ry="5" fill="#ea580c"/>
+
+  <!-- Transparent Cross-Section Window into Ceramic Candle & Biochar -->
+  <rect x="345" y="130" width="70" height="50" rx="6" fill="#0f172a" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1.2"/>
+  <!-- Candle porous ceramic core -->
+  <rect x="355" y="134" width="20" height="42" rx="3" fill="#fde047" fill-opacity="0.8"/>
+  <rect x="385" y="134" width="20" height="42" rx="3" fill="#38bdf8" fill-opacity="0.8"/>
+  <text x="365" y="180" font-family="system-ui, sans-serif" font-size="7" font-weight="800" fill="#ffffff" text-anchor="middle">CLAY</text>
+  <text x="395" y="180" font-family="system-ui, sans-serif" font-size="7" font-weight="800" fill="#ffffff" text-anchor="middle">BIOCHAR</text>
+
+  <!-- Laboratory Emblem printed on Terracotta Unit -->
+  <circle cx="380" cy="235" r="16" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <text x="380" y="234" font-family="system-ui, sans-serif" font-size="6.5" font-weight="900" fill="#38bdf8" text-anchor="middle">BIT MESRA</text>
+  <text x="380" y="243" font-family="system-ui, sans-serif" font-size="5" font-weight="700" fill="#a7f3d0" text-anchor="middle">VERIFIED</text>
+
+  <!-- Brass Tap on Lower Reservoir -->
+  <rect x="445" y="240" width="24" height="8" rx="2" fill="url(#brassTap)"/>
+  <polygon points="465,240 472,240 470,252 464,250" fill="url(#brassTap)"/>
+  <rect x="456" y="234" width="6" height="8" rx="1" fill="#ca8a04"/>
+
+  <!-- Sparkling Pure Clear Water Flowing from Brass Spigot -->
+  <path d="M 467 251 Q 470 280 476 325 L 484 325 Q 478 280 473 251 Z" fill="url(#crystalWater)"/>
+  <!-- Sparkling micro-bubbles & light caustics -->
+  <circle cx="474" cy="275" r="2" fill="#ffffff" opacity="0.95"/>
+  <circle cx="478" cy="298" r="1.8" fill="#ffffff" opacity="0.9"/>
+  <circle cx="475" cy="315" r="2.2" fill="#ffffff" opacity="0.95"/>
+  <!-- Light sparkle star -->
+  <path d="M 473 285 L 475 282 L 477 285 L 480 287 L 477 289 L 475 292 L 473 289 L 470 287 Z" fill="#ffffff"/>
+
+  <!-- Crystal Clear Glass Tumbler on Pedestal catching pure water -->
+  <rect x="460" y="325" width="36" height="52" rx="4" fill="url(#glassGleam)" stroke="#bae6fd" stroke-width="1.5"/>
+  <!-- Pure Water Level in Glass -->
+  <rect x="462" y="340" width="32" height="35" rx="3" fill="#38bdf8" fill-opacity="0.5"/>
+  <ellipse cx="478" cy="340" rx="16" ry="4" fill="#bae6fd" fill-opacity="0.8"/>
+
+  <!-- Verified Solution Telemetry / Lab Results HUD Banner -->
+  <g transform="translate(480, 40)">
+    <rect width="280" height="92" rx="12" fill="#042f2e" fill-opacity="0.92" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="22" cy="24" r="8" fill="#10b981"/>
+    <path d="M 18 24 L 21 27 L 26 21" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="38" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#a7f3d0" letter-spacing="0.5">SAFE POTABLE SOLUTION</text>
+    <text x="38" y="36" font-family="system-ui, sans-serif" font-size="9" fill="#6ee7b7">BIT Mesra Environmental Nanotech Lab</text>
+
+    <!-- Stat 1: Purified Iron -->
+    <rect x="16" y="48" width="118" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+    <text x="24" y="60" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#a7f3d0">RESIDUAL IRON (Fe)</text>
+    <text x="24" y="75" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#34d399">0.08 mg/L</text>
+    <text x="96" y="74" font-family="system-ui, sans-serif" font-size="7.5" fill="#6ee7b7">(Safe)</text>
+
+    <!-- Stat 2: Turbidity -->
+    <rect x="142" y="48" width="122" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+    <text x="150" y="60" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#a7f3d0">CLEAR TURBIDITY</text>
+    <text x="150" y="75" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#34d399">1.2 NTU</text>
+    <text x="206" y="74" font-family="system-ui, sans-serif" font-size="7.5" fill="#6ee7b7">(BIS Potable)</text>
+  </g>
+</svg>

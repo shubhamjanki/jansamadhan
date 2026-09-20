@@ -34,11 +34,15 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems: { key: ScreenTab; labelEn: string; labelHi: string }[] = [
     { key: 'home',                    labelEn: 'Home',              labelHi: 'होम' },
+    { key: 'process-flow',            labelEn: 'Process Flow',      labelHi: 'प्रक्रिया प्रवाह' },
     { key: 'challenges',              labelEn: 'Challenges',        labelHi: 'चुनौतियां' },
     { key: 'submit-problem',          labelEn: 'Submit Problem',    labelHi: 'समस्या दर्ज करें' },
     { key: 'state-heatmap',           labelEn: 'State Heatmap',     labelHi: 'राज्य हीटमैप' },
     { key: 'innovation-impact-graph', labelEn: 'Impact Graph',      labelHi: 'इम्पैक्ट ग्राफ़' },
     { key: 'projects',                labelEn: 'Projects',          labelHi: 'परियोजनाएं' },
+    ...(activeTab === 'problem-dossier'
+      ? [{ key: 'problem-dossier' as ScreenTab, labelEn: 'Problem Dossier', labelHi: 'समस्या डोज़ियर' }]
+      : []),
   ];
 
   return (
@@ -144,14 +148,14 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Right Controls */}
         <div className="flex items-center gap-2 shrink-0">
-          {/* Primary CTA */}
+          {/* Primary CTA — full on sm+, icon-only on mobile */}
           <button
             onClick={() => onTabChange('submit-problem')}
             id="header-register-problem-cta"
-            className="btn-primary py-2 px-4 text-sm hidden sm:inline-flex"
+            className="btn-primary py-2 px-3 sm:px-4 text-sm inline-flex"
           >
             <span className="material-symbols-outlined text-[16px]">campaign</span>
-            {language === 'hi' ? 'समस्या दर्ज करें' : 'Register Problem'}
+            <span className="hidden sm:inline">{language === 'hi' ? 'समस्या दर्ज करें' : 'Register Problem'}</span>
           </button>
 
           {/* Search */}
@@ -293,15 +297,39 @@ export const Header: React.FC<HeaderProps> = ({
           className="xl:hidden border-t border-ink-faint px-4 py-4 flex flex-col gap-3"
           style={{ background: '#F5EFE3' }}
         >
+          {/* Mobile CTA: Register Problem */}
+          <button
+            onClick={() => { onTabChange('submit-problem'); setMobileMenuOpen(false); }}
+            className="w-full btn-primary py-3 px-4 text-sm justify-center"
+          >
+            <span className="material-symbols-outlined text-[16px]">campaign</span>
+            {language === 'hi' ? 'समस्या दर्ज करें' : 'Register Problem'}
+          </button>
+
+          {/* Search trigger for mobile */}
+          <button
+            onClick={() => { onOpenSearch(); setMobileMenuOpen(false); }}
+            className="w-full flex items-center justify-center gap-2 px-3 py-2.5 border border-ink-faint text-sm cursor-pointer"
+            style={{
+              borderRadius: '4px',
+              background: '#EDE4D3',
+              color: '#5C5042',
+              fontFamily: "'Noto Sans', sans-serif",
+            }}
+          >
+            <span className="material-symbols-outlined text-[16px]">search</span>
+            <span className="text-[13px]">{language === 'hi' ? 'खोजें...' : 'Search Jan Samadhan...'}</span>
+          </button>
+
           {/* Role switcher mobile */}
-          <div className="flex items-center gap-1 pb-3 border-b border-ink-faint">
-            <span className="type-label mr-2" style={{ color: '#8C7C62' }}>Role:</span>
+          <div className="flex items-center gap-1 pb-3 border-b border-ink-faint overflow-x-auto">
+            <span className="type-label mr-2 shrink-0" style={{ color: '#8C7C62' }}>Role:</span>
             {(['Citizen', 'Dept. Officer', 'Institution PI'] as UserRole[]).map((role) => (
               <button
                 key={role}
                 onClick={() => onRoleChange(role)}
                 aria-pressed={userRole === role}
-                className="text-[11px] px-2 py-1 cursor-pointer"
+                className="text-[11px] px-2 py-1 cursor-pointer shrink-0"
                 style={{
                   fontFamily: "'DM Mono', monospace",
                   background: userRole === role ? '#0A1F35' : '#EDE4D3',
@@ -322,7 +350,7 @@ export const Header: React.FC<HeaderProps> = ({
                 key={item.key}
                 onClick={() => { onTabChange(item.key); setMobileMenuOpen(false); }}
                 aria-current={activeTab === item.key ? 'page' : undefined}
-                className="text-left px-3 py-2 text-sm cursor-pointer"
+                className="text-left px-3 py-2.5 text-sm cursor-pointer"
                 style={{
                   fontFamily: "'Noto Sans', sans-serif",
                   fontWeight: activeTab === item.key ? 600 : 400,

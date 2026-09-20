@@ -77,38 +77,38 @@ export const CommandCenterScreen: React.FC<CommandCenterScreenProps> = ({
       {/* Command Center Masthead Sub-Bar */}
       <div className="w-full bg-surface-container-low border-b border-surface-container-high py-space-sm px-4 sm:px-8">
         <div className="w-full flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
-          <div className="flex items-center gap-3 flex-wrap">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
             <div className="flex items-center gap-2 bg-surface-container-lowest px-3 py-1 rounded-full shadow-xs border border-surface-container-high">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">
-                State Command Center: Live Pulse
+              <span className="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider text-xs">
+                Command Center Live Pulse
               </span>
             </div>
             <span className="text-outline hidden sm:inline">•</span>
-            <div className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+            <div className="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5 text-xs">
               <span className="material-symbols-outlined text-body-sm text-primary">badge</span>
-              Duty Officer: <strong className="text-on-surface">Dr. A. K. Verma, IAS</strong> (Special Secretary, Science & Tech)
+              <span>Duty Officer: <strong className="text-on-surface">Dr. A. K. Verma, IAS</strong></span>
             </div>
             <span className="text-outline hidden sm:inline">•</span>
-            <div className="font-label-sm text-label-sm bg-error-container text-on-error-container px-2.5 py-0.5 rounded-full font-bold">
-              Queue Alert: {pendingQueueCount + 125} Pending Approvals
+            <div className="font-label-sm text-label-sm bg-error-container text-on-error-container px-2.5 py-0.5 rounded-full font-bold text-xs">
+              Alert: {pendingQueueCount + 125} Pending
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               onClick={onOpenCabinetBriefing}
-              className="bg-surface-container hover:bg-surface-container-high text-primary px-3 py-1.5 rounded-lg font-label-md text-label-md transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-xs"
+              className="flex-1 sm:flex-initial justify-center bg-surface-container hover:bg-surface-container-high text-primary px-3 py-1.5 rounded-lg font-label-md text-label-md transition-colors flex items-center gap-1 cursor-pointer font-semibold shadow-xs text-xs sm:text-sm"
             >
               <span className="material-symbols-outlined text-body-sm">description</span>
-              Cabinet Briefing PDF
+              <span>Cabinet Briefing</span>
             </button>
             <button
               onClick={handleBatchDispatch}
-              className="bg-secondary hover:bg-secondary/90 text-on-secondary px-3.5 py-1.5 rounded-lg font-label-md text-label-md transition-colors flex items-center gap-1 cursor-pointer font-bold shadow-xs"
+              className="flex-1 sm:flex-initial justify-center bg-secondary hover:bg-secondary/90 text-on-secondary px-3.5 py-1.5 rounded-lg font-label-md text-label-md transition-colors flex items-center gap-1 cursor-pointer font-bold shadow-xs text-xs sm:text-sm"
             >
               <span className="material-symbols-outlined text-body-sm">send</span>
-              Batch Dispatch (14)
+              <span>Dispatch (14)</span>
             </button>
           </div>
         </div>
@@ -793,29 +793,29 @@ export const CommandCenterScreen: React.FC<CommandCenterScreenProps> = ({
         {/* Executive Audit Floating Action Banner */}
         <section className="bg-primary text-on-primary rounded-xl p-space-md shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
           <div className="flex items-center gap-3">
-            <span className="material-symbols-outlined text-tertiary-fixed text-headline-lg">verified</span>
+            <span className="material-symbols-outlined text-tertiary-fixed text-headline-lg shrink-0">verified</span>
             <div>
-              <h4 className="font-headline-sm text-headline-sm font-bold text-on-primary">
+              <h4 className="font-headline-sm text-headline-sm font-bold text-on-primary text-sm sm:text-base">
                 State Cabinet Innovation Quarterly Report Ready
               </h4>
-              <p className="font-body-sm text-body-sm text-on-primary-container">
+              <p className="font-body-sm text-body-sm text-on-primary-container text-xs sm:text-sm">
                 All 24 District Innovation Cells and 42 university research facilities verified under Audit Act 2024.
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full md:w-auto">
             <button
               onClick={onViewGeoAudit}
-              className="bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary px-3.5 py-2 rounded-lg font-label-md text-label-md transition-colors cursor-pointer font-medium"
+              className="bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary px-3.5 py-2 rounded-lg font-label-md text-label-md transition-colors cursor-pointer font-medium text-center text-xs sm:text-sm"
             >
               View Geo-Audit Logs
             </button>
             <button
               onClick={onAuthorizeGazette}
-              className="bg-secondary hover:bg-secondary/90 text-on-secondary px-4 py-2 rounded-lg font-label-md text-label-md transition-colors cursor-pointer font-bold shadow-xs flex items-center gap-1"
+              className="bg-secondary hover:bg-secondary/90 text-on-secondary px-4 py-2 rounded-lg font-label-md text-label-md transition-colors cursor-pointer font-bold shadow-xs flex items-center justify-center gap-1 text-xs sm:text-sm text-center"
             >
               <span className="material-symbols-outlined text-[16px]">verified_user</span>
-              Authorize State Gazette Release
+              Authorize Gazette Release
             </button>
           </div>
         </section>

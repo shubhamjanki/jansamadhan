@@ -46,30 +46,40 @@ export const CitizenDigitalPassModal: React.FC<CitizenDigitalPassModalProps> = (
     <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200">
       <div className="bg-surface rounded-3xl w-full max-w-2xl max-h-[92vh] flex flex-col shadow-2xl border border-surface-container-highest overflow-hidden">
         {/* Header */}
-        <div className="px-5 py-4 bg-primary text-on-primary flex items-center justify-between border-b border-primary-container">
-          <div className="flex items-center gap-3">
-            <img
-              src={logoImg}
-              alt="Jan Samadhan Seal"
-              className="w-9 h-9 rounded-full object-cover bg-white p-0.5 shadow-sm"
-            />
-            <div>
-              <h3 className="font-bold text-sm tracking-tight">
-                {language === 'hi' ? 'नागरिक डिजिटल पावती एवं व्हाट्सएप अलर्ट' : 'Citizen Digital Pass & WhatsApp Alert'}
-              </h3>
-              <p className="text-[11px] text-on-primary-container font-mono">
-                Docket: {ticket.id} • Verified by DHTE Jharkhand
-              </p>
+        <div className="px-4 sm:px-5 py-3.5 sm:py-4 bg-primary text-on-primary flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-primary-container">
+          <div className="flex items-center justify-between sm:justify-start gap-2.5">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <img
+                src={logoImg}
+                alt="Jan Samadhan Seal"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover bg-white p-0.5 shadow-sm shrink-0"
+              />
+              <div className="min-w-0">
+                <h3 className="font-bold text-xs sm:text-sm tracking-tight truncate">
+                  {language === 'hi' ? 'नागरिक डिजिटल पावती एवं व्हाट्सएप अलर्ट' : 'Citizen Digital Pass & WhatsApp Alert'}
+                </h3>
+                <p className="text-[10px] sm:text-[11px] text-on-primary-container font-mono truncate">
+                  Docket: {ticket.id} • Verified by DHTE Jharkhand
+                </p>
+              </div>
             </div>
+
+            <button
+              onClick={onClose}
+              className="sm:hidden p-1 rounded-full hover:bg-white/10 text-white transition-colors cursor-pointer shrink-0"
+              title="Close Pass"
+            >
+              <span className="material-symbols-outlined text-[20px]">close</span>
+            </button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between sm:justify-end gap-2">
             {/* Tab switch */}
-            <div className="bg-black/20 p-1 rounded-xl flex items-center text-xs">
+            <div className="bg-black/20 p-1 rounded-xl flex items-center text-xs flex-1 sm:flex-initial justify-center">
               <button
                 type="button"
                 onClick={() => setActiveTab('pass')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer text-xs ${
                   activeTab === 'pass' ? 'bg-white text-primary shadow-xs' : 'text-white/80 hover:text-white'
                 }`}
               >
@@ -78,7 +88,7 @@ export const CitizenDigitalPassModal: React.FC<CitizenDigitalPassModalProps> = (
               <button
                 type="button"
                 onClick={() => setActiveTab('whatsapp')}
-                className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer flex items-center gap-1 text-xs ${
                   activeTab === 'whatsapp' ? 'bg-emerald-500 text-white shadow-xs' : 'text-white/80 hover:text-white'
                 }`}
               >
@@ -89,7 +99,7 @@ export const CitizenDigitalPassModal: React.FC<CitizenDigitalPassModalProps> = (
 
             <button
               onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-white/10 text-white transition-colors cursor-pointer"
+              className="hidden sm:inline-flex p-1.5 rounded-full hover:bg-white/10 text-white transition-colors cursor-pointer"
               title="Close Pass"
             >
               <span className="material-symbols-outlined text-[20px]">close</span>
@@ -110,31 +120,31 @@ export const CitizenDigitalPassModal: React.FC<CitizenDigitalPassModalProps> = (
                 </div>
 
                 {/* Top Pass Banner */}
-                <div className="flex items-start justify-between border-b-2 border-slate-100 pb-4">
-                  <div className="flex items-center gap-3">
+                <div className="flex flex-col xs:flex-row items-start justify-between border-b-2 border-slate-100 pb-3 gap-2">
+                  <div className="flex items-center gap-2.5">
                     <img
                       src={logoImg}
                       alt="Government of Jharkhand"
-                      className="w-12 h-12 rounded-xl object-contain border border-slate-200 bg-white p-1"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-contain border border-slate-200 bg-white p-1"
                     />
                     <div>
-                      <span className="text-[10px] font-bold text-emerald-800 uppercase tracking-widest block">
+                      <span className="text-[9px] sm:text-[10px] font-bold text-emerald-800 uppercase tracking-widest block">
                         GOVERNMENT OF JHARKHAND
                       </span>
-                      <h4 className="text-base font-black text-slate-900">
+                      <h4 className="text-sm sm:text-base font-black text-slate-900 leading-tight">
                         JAN SAMADHAN CITIZEN PASS
                       </h4>
-                      <p className="text-[11px] text-slate-500 font-medium">
-                        Department of Higher & Technical Education • District Innovation Fund
+                      <p className="text-[10px] sm:text-[11px] text-slate-500 font-medium">
+                        Dept of Higher &amp; Technical Education • Innovation Fund
                       </p>
                     </div>
                   </div>
 
-                  <div className="text-right">
-                    <span className="inline-block bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  <div className="self-start xs:self-auto text-left xs:text-right">
+                    <span className="inline-block bg-emerald-100 text-emerald-800 text-[9px] sm:text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
                       VALID SLA DOCKET
                     </span>
-                    <span className="block font-mono text-xs font-black text-slate-700 mt-1">
+                    <span className="block font-mono text-xs font-black text-slate-700 mt-0.5">
                       {ticket.id}
                     </span>
                   </div>
@@ -305,11 +315,11 @@ export const CitizenDigitalPassModal: React.FC<CitizenDigitalPassModalProps> = (
         </div>
 
         {/* Footer Actions */}
-        <div className="px-5 py-3.5 bg-surface-container border-t border-surface-container-high flex flex-wrap items-center justify-between gap-3">
+        <div className="px-4 sm:px-5 py-3.5 bg-surface-container border-t border-surface-container-high flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
           <button
             type="button"
             onClick={handleCopyLink}
-            className="text-xs bg-surface-container-low hover:bg-surface-container-high text-primary px-3.5 py-2 rounded-xl font-bold transition-all flex items-center gap-1.5 border border-surface-container-high cursor-pointer"
+            className="text-xs bg-surface-container-low hover:bg-surface-container-high text-primary px-3.5 py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1.5 border border-surface-container-high cursor-pointer w-full sm:w-auto"
           >
             <span className="material-symbols-outlined text-[16px]">
               {copied ? 'check' : 'content_copy'}
@@ -317,11 +327,11 @@ export const CitizenDigitalPassModal: React.FC<CitizenDigitalPassModalProps> = (
             <span>{copied ? 'Copied Link!' : 'Copy Tracking Link'}</span>
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto">
             <button
               type="button"
               onClick={handlePrint}
-              className="text-xs bg-surface-container-low hover:bg-surface-container-high text-primary px-4 py-2 rounded-xl font-bold transition-all flex items-center gap-1.5 border border-surface-container-high cursor-pointer"
+              className="flex-1 sm:flex-initial text-xs bg-surface-container-low hover:bg-surface-container-high text-primary px-4 py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1.5 border border-surface-container-high cursor-pointer"
             >
               <span className="material-symbols-outlined text-[16px]">print</span>
               <span>Print Pass</span>
@@ -330,7 +340,7 @@ export const CitizenDigitalPassModal: React.FC<CitizenDigitalPassModalProps> = (
             <button
               type="button"
               onClick={onClose}
-              className="text-xs bg-primary text-on-primary px-5 py-2 rounded-xl font-bold hover:bg-primary/90 transition-all cursor-pointer"
+              className="flex-1 sm:flex-initial text-xs bg-primary text-on-primary px-5 py-2 rounded-xl font-bold hover:bg-primary/90 transition-all cursor-pointer text-center"
             >
               Done
             </button>

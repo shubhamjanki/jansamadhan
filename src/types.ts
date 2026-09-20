@@ -1,4 +1,4 @@
-export type ScreenTab = 'home' | 'challenges' | 'submit-problem' | 'state-heatmap' | 'innovation-impact-graph' | 'projects';
+export type ScreenTab = 'home' | 'challenges' | 'submit-problem' | 'state-heatmap' | 'innovation-impact-graph' | 'projects' | 'problem-dossier' | 'process-flow';
 
 export type UserRole = 'Citizen' | 'Dept. Officer' | 'Institution PI';
 

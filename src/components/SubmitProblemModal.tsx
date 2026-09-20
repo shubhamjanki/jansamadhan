@@ -20,6 +20,16 @@ interface SubmitProblemModalProps {
     autoStartProcessing?: boolean;
   } | null;
   onNavigateToCommandCenter?: () => void;
+  onOpenDossierPage?: (dossier: {
+    docketId: string;
+    title: string;
+    district: string;
+    block: string;
+    category: string;
+    dialect?: string;
+    description?: string;
+    photoUrl?: string;
+  }) => void;
 }
 
 export const SubmitProblemModal: React.FC<SubmitProblemModalProps> = ({
@@ -28,6 +38,7 @@ export const SubmitProblemModal: React.FC<SubmitProblemModalProps> = ({
   onSubmitSuccess,
   initialData,
   onNavigateToCommandCenter,
+  onOpenDossierPage,
 }) => {
   // Modal Workflow Steps: 'form' | 'processing' | 'report'
   const [modalStep, setModalStep] = useState<'form' | 'processing' | 'report'>('form');
@@ -54,6 +65,15 @@ export const SubmitProblemModal: React.FC<SubmitProblemModalProps> = ({
   const [selectedMapProblemId, setSelectedMapProblemId] = useState<string | null>(null);
   const [isDigitalPassOpen, setIsDigitalPassOpen] = useState(false);
 
+  // Always reset to 'form' step when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setModalStep('form');
+      setProcessingProgress(0);
+      setActiveProcessingPhase(1);
+    }
+  }, [isOpen]);
+
   // Populate from initialData if passed
   useEffect(() => {
     if (initialData && isOpen) {
@@ -63,17 +83,8 @@ export const SubmitProblemModal: React.FC<SubmitProblemModalProps> = ({
       if (initialData.block) setBlock(initialData.block);
       if (initialData.description) setDescription(initialData.description);
       if (initialData.photoUrl) setSelectedPhotoUrl(initialData.photoUrl);
-
-      if (initialData.autoStartProcessing) {
-        startProcessingFlow({
-          district: initialData.district,
-          title: initialData.title,
-          category: initialData.category,
-          block: initialData.block,
-        });
-      } else {
-        setModalStep('form');
-      }
+      // Always show form first so user can review before submitting
+      setModalStep('form');
     } else if (isOpen && modalStep === 'form' && !title) {
       // Default pre-fill for rich instant experience
       setTitle('Heavy Iron & Arsenic Infiltration in Deep Borewell Aquifer');
@@ -195,12 +206,29 @@ export const SubmitProblemModal: React.FC<SubmitProblemModalProps> = ({
       if (elapsed >= duration) {
         clearInterval(interval);
         setTimeout(() => {
-          setModalStep('report');
-          onSubmitSuccess?.({
-            id: docketCode,
+          const dossierPayload = {
+            docketId: docketCode,
             title: curTitle || `Public Grievance in ${curDistrict} (${curCategory})`,
             district: curDistrict,
+            block: overrideData?.block || block,
+            category: curCategory,
+            dialect: dialect,
+            description: description,
+            photoUrl: selectedPhotoUrl,
+          };
+
+          onSubmitSuccess?.({
+            id: docketCode,
+            title: dossierPayload.title,
+            district: curDistrict,
           });
+
+          if (onOpenDossierPage) {
+            onClose();
+            onOpenDossierPage(dossierPayload);
+          } else {
+            setModalStep('report');
+          }
         }, 200);
       }
     }, 80);
@@ -342,9 +370,9 @@ export const SubmitProblemModal: React.FC<SubmitProblemModalProps> = ({
   return (
     <div
       id="submit-problem-modal"
-      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-primary/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-0 sm:p-4 bg-primary/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
     >
-      <div className="bg-surface-container-lowest rounded-2xl w-full max-w-4xl max-h-[95vh] overflow-y-auto shadow-2xl border border-surface-container-high flex flex-col my-auto">
+      <div className="bg-surface-container-lowest sm:rounded-2xl w-full max-w-4xl min-h-screen sm:min-h-0 sm:max-h-[95vh] overflow-y-auto shadow-2xl border-0 sm:border border-surface-container-high flex flex-col">
         
         {/* Top Header Bar */}
         <div className="bg-primary text-on-primary p-4 sm:p-5 flex items-center justify-between border-b border-white/10 shrink-0">
@@ -357,12 +385,12 @@ export const SubmitProblemModal: React.FC<SubmitProblemModalProps> = ({
             />
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="font-headline-md text-headline-md font-bold text-white text-base sm:text-lg">
+                <h3 className="font-headline-md text-headline-md font-bold text-white text-sm sm:text-lg leading-tight">
                   {modalStep === 'form' && 'Citizen Grievance & Technical Problem Intake'}
                   {modalStep === 'processing' && 'AI Multimodal Triage & University Routing Engine'}
                   {modalStep === 'report' && 'Structured Problem Statement & Cluster Dossier'}
                 </h3>
-                <span className="bg-secondary text-on-secondary px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase">
+                <span className="bg-secondary text-on-secondary px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase shrink-0">
                   Official Gov Portal
                 </span>
               </div>

@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Language } from '../types';
+
+import waterBeforeSvg from '../assets/impact/water_before.svg';
+import waterAfterSvg from '../assets/impact/water_after.svg';
+import coldBeforeSvg from '../assets/impact/cold_storage_before.svg';
+import coldAfterSvg from '../assets/impact/cold_storage_after.svg';
+import dustBeforeSvg from '../assets/impact/dust_before.svg';
+import dustAfterSvg from '../assets/impact/dust_after.svg';
 
 interface FieldImpactShowcaseProps {
   language: Language;
@@ -46,12 +53,12 @@ const IMPACT_CASES: ImpactCase[] = [
     beforeLabel: 'Before Intervention (Ground Reality)',
     beforeLabelHi: 'समाधान से पूर्व (जमीनी स्थिति)',
     beforeDesc: 'Handpump water exhibited 4.8 mg/L Iron (permissible BIS limit: 0.3 mg/L) and high turbidity (28 NTU). Water was dark reddish-brown, causing severe skin dermatitis and gastrointestinal distress.',
-    beforeImg: 'https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&w=800&q=80',
+    beforeImg: waterBeforeSvg,
     beforeMetric: '28 NTU Turbidity • 4.8 mg/L Fe',
     afterLabel: 'Field-Tested Solution by BIT Mesra',
     afterLabelHi: 'बीआईटी मेसरा द्वारा विकसित व स्थापित समाधान',
     afterDesc: 'Localized gravity-fed filtration unit using clay-baked porous terracotta candles enriched with activated rice-husk biochar. 100% locally serviceable by village youth.',
-    afterImg: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=800&q=80',
+    afterImg: waterAfterSvg,
     afterMetric: '1.2 NTU Turbidity • 0.08 mg/L Fe (BIS Safe)',
     turnaroundDays: 38,
     costPerUnit: '₹420 / Household',
@@ -72,12 +79,12 @@ const IMPACT_CASES: ImpactCase[] = [
     beforeLabel: 'Before Intervention (Crop Spoilage)',
     beforeLabelHi: 'समाधान से पूर्व (फसल बर्बादी)',
     beforeDesc: 'Smallholder organic tomato & green pea growers experienced 38% post-harvest spoilage within 48 hours of harvest due to lack of electricity and 45 km transit to commercial cold storages.',
-    beforeImg: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80',
+    beforeImg: coldBeforeSvg,
     beforeMetric: '38% Harvest Lost • ₹8,400 Loss / Farmer',
     afterLabel: 'IIT ISM Dhanbad Solar Chilling Pod',
     afterLabelHi: 'आईआईटी धनबाद सौर ऊर्जा चालित कोल्ड पॉड',
     afterDesc: 'Thermal battery with PCM (Phase Change Material) eutectic plates maintaining 4°C for 22 continuous hours without grid power, constructed using locally sourced bamboo insulation.',
-    afterImg: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+    afterImg: coldAfterSvg,
     afterMetric: '96% Shelf Life Retention • 14-Day Storage',
     turnaroundDays: 42,
     costPerUnit: '₹1.85 Lakh (District Innovation Grant)',
@@ -98,12 +105,12 @@ const IMPACT_CASES: ImpactCase[] = [
     beforeLabel: 'Before Intervention (Fugitive Coal Dust)',
     beforeLabelHi: 'समाधान से पूर्व (कोयला धूल प्रदूषण)',
     beforeDesc: 'Open-cast coal transport dumpers generated extreme PM2.5 levels (>380 µg/m³), choking primary school classrooms and residential settlements located along the unpaved transit haul corridor.',
-    beforeImg: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=800&q=80',
+    beforeImg: dustBeforeSvg,
     beforeMetric: '382 µg/m³ PM2.5 • Severe Respiratory Risk',
     afterLabel: 'NIT Jamshedpur Ultrasonic Mist Battery',
     afterLabelHi: 'एनआईटी जमशेदपुर द्वारा स्थापित मिस्ट कैनन',
     afterDesc: 'Low-water high-frequency atomization cannons that charge micro-droplets electrostatically, agglomerating airborne sub-micron respirable coal particles at source with 85% less water consumption.',
-    afterImg: 'https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=800&q=80',
+    afterImg: dustAfterSvg,
     afterMetric: '58 µg/m³ PM2.5 (84% Ambient Drop)',
     turnaroundDays: 34,
     costPerUnit: '₹3.20 Lakh (Coal Cess Innovation Fund)',
@@ -121,6 +128,38 @@ export const FieldImpactShowcase: React.FC<FieldImpactShowcaseProps> = ({
   const [activeCaseIndex, setActiveCaseIndex] = useState(0);
   const [sliderPosition, setSliderPosition] = useState(50); // percentage 0 to 100
   const [viewMode, setViewMode] = useState<'slider' | 'sideBySide'>('slider');
+  const sliderContainerRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const updateSliderPosition = (clientX: number) => {
+    if (!sliderContainerRef.current) return;
+    const rect = sliderContainerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setSliderPosition(Math.round(percentage));
+  };
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.button !== 0) return;
+    setIsDragging(true);
+    e.currentTarget.setPointerCapture(e.pointerId);
+    updateSliderPosition(e.clientX);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (isDragging) {
+      updateSliderPosition(e.clientX);
+    }
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    setIsDragging(false);
+    try {
+      e.currentTarget.releasePointerCapture(e.pointerId);
+    } catch {
+      // ignore
+    }
+  };
 
   const currentCase = IMPACT_CASES[activeCaseIndex];
 
@@ -235,91 +274,151 @@ export const FieldImpactShowcase: React.FC<FieldImpactShowcaseProps> = ({
         </div>
 
         {/* Main Showcase Stage */}
-        <div className="bg-surface rounded-3xl p-6 sm:p-8 border border-surface-container-high shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="bg-surface rounded-3xl p-4 sm:p-8 border border-surface-container-high shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
           {/* Visual Showcase (7 Columns) */}
           <div className="lg:col-span-7 flex flex-col gap-4">
             {viewMode === 'slider' ? (
               /* Interactive Before/After Split Slider */
-              <div className="relative rounded-2xl overflow-hidden aspect-video bg-black select-none shadow-xl border border-surface-container-high">
-                {/* After Image (Full Background) */}
-                <img
-                  src={currentCase.afterImg}
-                  alt={currentCase.afterLabel}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-
-                {/* Before Image (Clipped by sliderPosition) */}
+              <div className="flex flex-col gap-3">
                 <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ width: `${sliderPosition}%` }}
+                  ref={sliderContainerRef}
+                  className="relative rounded-2xl overflow-hidden aspect-video bg-surface-container-high select-none shadow-xl border border-surface-container-high cursor-ew-resize touch-none group outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+                  onPointerDown={handlePointerDown}
+                  onPointerMove={handlePointerMove}
+                  onPointerUp={handlePointerUp}
+                  onPointerCancel={handlePointerUp}
+                  tabIndex={0}
+                  role="slider"
+                  aria-label="Before and after transformation comparison slider"
+                  aria-valuenow={sliderPosition}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                  onKeyDown={(e) => {
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+                      e.preventDefault();
+                      setSliderPosition((prev) => Math.max(0, prev - 5));
+                    } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+                      e.preventDefault();
+                      setSliderPosition((prev) => Math.min(100, prev + 5));
+                    }
+                  }}
                 >
+                  {/* After Image (Full Base Background) */}
                   <img
-                    src={currentCase.beforeImg}
-                    alt={currentCase.beforeLabel}
-                    className="absolute inset-0 w-full h-full object-cover max-w-none"
-                    style={{ width: '100%', height: '100%' }}
+                    src={currentCase.afterImg}
+                    alt={currentCase.afterLabel}
+                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                    draggable={false}
+                    loading="eager"
                   />
-                  {/* Subtle Dark Vignette for contrast */}
-                  <div className="absolute inset-0 bg-red-950/25" />
-                </div>
 
-                {/* Divider Line & Handle */}
-                <div
-                  className="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize shadow-[0_0_10px_rgba(0,0,0,0.5)] z-20 flex items-center justify-center"
-                  style={{ left: `${sliderPosition}%` }}
-                >
-                  <div className="w-9 h-9 rounded-full bg-white text-primary shadow-xl border-2 border-primary flex items-center justify-center text-xs font-black">
-                    <span className="material-symbols-outlined text-[18px]">drag_indicator</span>
+                  {/* Before Image (Top Layer clipped cleanly by sliderPosition) */}
+                  <div
+                    className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none"
+                    style={{
+                      clipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+                      WebkitClipPath: `inset(0 ${100 - sliderPosition}% 0 0)`,
+                    }}
+                  >
+                    <img
+                      src={currentCase.beforeImg}
+                      alt={currentCase.beforeLabel}
+                      className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+                      draggable={false}
+                      loading="eager"
+                    />
+                  </div>
+
+                  {/* Divider Line & Handle */}
+                  <div
+                    className="absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_12px_rgba(0,0,0,0.8)] z-20 pointer-events-none flex items-center justify-center"
+                    style={{ left: `${sliderPosition}%` }}
+                  >
+                    <div className="w-10 h-10 rounded-full bg-white text-primary shadow-2xl border-2 border-primary/20 flex items-center justify-center text-xs font-black transform -translate-x-1/2 group-hover:scale-110 active:scale-95 transition-transform pointer-events-auto cursor-ew-resize">
+                      <span className="material-symbols-outlined text-[20px] select-none text-primary">drag_indicator</span>
+                    </div>
+                  </div>
+
+                  {/* Floating Tags */}
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 z-10 pointer-events-none">
+                    <span className="bg-red-950/85 backdrop-blur-md text-white text-[9px] sm:text-[11px] font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-red-500/40 shadow-md flex items-center gap-1 sm:gap-1.5">
+                      <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-red-400 animate-pulse" />
+                      {language === 'hi' ? 'पूर्व' : 'BEFORE'}
+                    </span>
+                  </div>
+
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 pointer-events-none">
+                    <span className="bg-emerald-950/85 backdrop-blur-md text-white text-[9px] sm:text-[11px] font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-emerald-500/40 shadow-md flex items-center gap-1 sm:gap-1.5">
+                      <span className="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400" />
+                      {language === 'hi' ? 'समाधान' : 'AFTER'}
+                    </span>
+                  </div>
+
+                  {/* Bottom Metric Badges */}
+                  <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 right-2 sm:right-4 flex items-center justify-between z-10 pointer-events-none gap-2">
+                    <div className="bg-black/75 backdrop-blur-md text-red-200 text-[10px] sm:text-xs font-mono font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-white/10 shadow-lg truncate">
+                      {currentCase.beforeMetric}
+                    </div>
+                    <div className="bg-emerald-950/85 backdrop-blur-md text-emerald-200 text-[10px] sm:text-xs font-mono font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl border border-emerald-400/30 shadow-lg truncate">
+                      {currentCase.afterMetric}
+                    </div>
                   </div>
                 </div>
 
-                {/* Range Input Overlay for Dragging */}
-                <input
-                  type="range"
-                  min="5"
-                  max="95"
-                  value={sliderPosition}
-                  onChange={(e) => setSliderPosition(Number(e.target.value))}
-                  className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30"
-                  aria-label="Drag to compare before and after"
-                />
-
-                {/* Floating Tags */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="bg-red-950/85 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-xl border border-red-500/40 shadow-md flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-red-400" />
-                    {language === 'hi' ? 'समस्या से पहले' : 'BEFORE: Unsafe Ground Reality'}
+                {/* Quick Presets Bar */}
+                <div className="flex items-center justify-between gap-2 px-1">
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => setSliderPosition(100)}
+                      className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
+                        sliderPosition === 100
+                          ? 'bg-red-50 border-red-300 text-red-700 shadow-xs'
+                          : 'bg-surface-container-low border-surface-container-high text-on-surface-variant hover:text-on-surface'
+                      }`}
+                    >
+                      {language === 'hi' ? '100% पूर्व स्थिति' : '100% Before'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSliderPosition(50)}
+                      className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
+                        sliderPosition === 50
+                          ? 'bg-primary/10 border-primary/30 text-primary shadow-xs'
+                          : 'bg-surface-container-low border-surface-container-high text-on-surface-variant hover:text-on-surface'
+                      }`}
+                    >
+                      {language === 'hi' ? '50/50 तुलना' : '50/50 Split'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSliderPosition(0)}
+                      className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border transition-all cursor-pointer ${
+                        sliderPosition === 0
+                          ? 'bg-emerald-50 border-emerald-300 text-emerald-700 shadow-xs'
+                          : 'bg-surface-container-low border-surface-container-high text-on-surface-variant hover:text-on-surface'
+                      }`}
+                    >
+                      {language === 'hi' ? '100% समाधान' : '100% After'}
+                    </button>
+                  </div>
+                  <span className="text-[11px] font-mono font-bold text-on-surface-variant">
+                    {sliderPosition}% / {100 - sliderPosition}%
                   </span>
-                </div>
-
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="bg-emerald-950/85 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1.5 rounded-xl border border-emerald-500/40 shadow-md flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                    {language === 'hi' ? 'विश्वविद्यालय समाधान' : 'AFTER: University Prototype'}
-                  </span>
-                </div>
-
-                {/* Bottom Metric Badges */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
-                  <div className="bg-black/70 backdrop-blur-md text-red-200 text-xs font-mono font-bold px-3 py-1.5 rounded-xl border border-white/10">
-                    {currentCase.beforeMetric}
-                  </div>
-                  <div className="bg-emerald-900/90 backdrop-blur-md text-emerald-200 text-xs font-mono font-bold px-3 py-1.5 rounded-xl border border-emerald-400/30">
-                    {currentCase.afterMetric}
-                  </div>
                 </div>
               </div>
             ) : (
               /* Side-by-Side Mode */
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="relative rounded-2xl overflow-hidden aspect-video bg-black shadow-md border border-red-300">
+                <div className="relative rounded-2xl overflow-hidden aspect-video bg-surface-container-high shadow-md border border-red-300">
                   <img
                     src={currentCase.beforeImg}
                     alt={currentCase.beforeLabel}
                     className="w-full h-full object-cover"
+                    loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-3 flex flex-col justify-between">
-                    <span className="bg-red-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-md self-start">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-3 flex flex-col justify-between pointer-events-none">
+                    <span className="bg-red-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-md self-start shadow-sm">
                       BEFORE
                     </span>
                     <span className="font-mono text-xs text-red-200 font-bold">
@@ -328,14 +427,15 @@ export const FieldImpactShowcase: React.FC<FieldImpactShowcaseProps> = ({
                   </div>
                 </div>
 
-                <div className="relative rounded-2xl overflow-hidden aspect-video bg-black shadow-md border border-emerald-300">
+                <div className="relative rounded-2xl overflow-hidden aspect-video bg-surface-container-high shadow-md border border-emerald-300">
                   <img
                     src={currentCase.afterImg}
                     alt={currentCase.afterLabel}
                     className="w-full h-full object-cover"
+                    loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-3 flex flex-col justify-between">
-                    <span className="bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-md self-start">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-3 flex flex-col justify-between pointer-events-none">
+                    <span className="bg-emerald-700 text-white text-[10px] font-bold px-2.5 py-1 rounded-md self-start shadow-sm">
                       AFTER
                     </span>
                     <span className="font-mono text-xs text-emerald-200 font-bold">
@@ -347,10 +447,11 @@ export const FieldImpactShowcase: React.FC<FieldImpactShowcaseProps> = ({
             )}
 
             {/* Slider Hint */}
-            <div className="flex items-center justify-between text-xs text-on-surface-variant px-1">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-on-surface-variant px-1 gap-1">
               <span className="flex items-center gap-1.5">
                 <span className="material-symbols-outlined text-[16px] text-secondary">swipe</span>
-                Drag the center slider left or right to inspect the field transformation
+                <span className="hidden sm:inline">Drag the center slider left or right to inspect the field transformation</span>
+                <span className="sm:hidden">Drag slider to compare</span>
               </span>
               <span className="font-mono text-[11px] font-bold text-primary">
                 Turnaround: {currentCase.turnaroundDays} Days

@@ -51,11 +51,11 @@ export const HeatmapScreen: React.FC<HeatmapScreenProps> = ({ onSelectDistrict }
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
         {/* Map Canvas (Span 8) */}
         <div className="lg:col-span-8 bg-surface-container-lowest p-space-md rounded-xl shadow-xs border border-surface-container-high/40 flex flex-col gap-space-sm">
-          <div className="flex items-center justify-between">
-            <span className="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">
-              Satellite GIS Layer • Jharkhand Space Applications Center (JSAC)
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <span className="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider text-xs">
+              Satellite GIS Layer • JSAC Jharkhand
             </span>
-            <div className="flex items-center gap-3 text-label-sm font-label-sm">
+            <div className="flex items-center gap-2 sm:gap-3 text-label-sm font-label-sm flex-wrap text-[11px] sm:text-xs">
               <span className="flex items-center gap-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-error"></span> Level 4 (Critical)
               </span>
@@ -63,7 +63,7 @@ export const HeatmapScreen: React.FC<HeatmapScreenProps> = ({ onSelectDistrict }
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span> Level 3 (High)
               </span>
               <span className="flex items-center gap-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Level 2 (Moderate)
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-500"></span> Level 2 (Mod.)
               </span>
             </div>
           </div>
@@ -118,15 +118,15 @@ export const HeatmapScreen: React.FC<HeatmapScreenProps> = ({ onSelectDistrict }
             </div>
 
             {/* Bottom floating legend & live pulse */}
-            <div className="relative z-10 w-full bg-surface-container-lowest/90 backdrop-blur-md p-3.5 rounded-lg flex items-center justify-between shadow-md">
+            <div className="relative z-10 w-full bg-surface-container-lowest/90 backdrop-blur-md p-2.5 sm:p-3.5 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 shadow-md">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="font-label-sm text-label-sm font-bold text-primary">
-                  Active Radar Sweep: 24/24 Districts Reporting
+                <span className="font-label-sm text-label-sm font-bold text-primary text-xs">
+                  Active Radar: 24/24 Districts Reporting
                 </span>
               </div>
-              <span className="font-body-sm text-body-sm text-on-surface-variant text-[12px]">
-                Click any hotspot pin to inspect District Innovation Cell
+              <span className="font-body-sm text-body-sm text-on-surface-variant text-[11px] sm:text-[12px]">
+                Tap any hotspot pin to inspect District Cell
               </span>
             </div>
           </div>

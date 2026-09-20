@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Crisp Clear Clean Sky Gradient -->
+    <linearGradient id="cleanAirSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="45%" stop-color="#38bdf8"/>
+      <stop offset="85%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+
+    <!-- Suppressed Moist Haul Road Surface -->
+    <linearGradient id="moistRoad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3f3f46"/>
+      <stop offset="40%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+
+    <!-- Ultrasonic Atomized Mist Cone Gradient -->
+    <linearGradient id="mistCone" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="35%" stop-color="#bae6fd" stop-opacity="0.8"/>
+      <stop offset="70%" stop-color="#38bdf8" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Cannon Metallic Gradient -->
+    <linearGradient id="cannonMetal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Clean, Crisp Blue Sky -->
+  <rect width="800" height="450" fill="url(#cleanAirSky)"/>
+
+  <!-- Bright Golden Sun -->
+  <circle cx="160" cy="80" r="32" fill="#fef08a" opacity="0.95"/>
+  <circle cx="160" cy="80" r="45" fill="#fef08a" opacity="0.3"/>
+
+  <!-- Clear, Beautiful Primary School Building in Background (No Soot!) -->
+  <g transform="translate(460, 150)">
+    <!-- School main hall with clean whitewashed & ochre walls -->
+    <rect width="200" height="85" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+    <polygon points="-15,0 100,-32 215,0" fill="#dc2626"/> <!-- Terracotta roof -->
+    <!-- Flagpole with Tricolor -->
+    <line x1="100" y1="-32" x2="100" y2="-68" stroke="#475569" stroke-width="2"/>
+    <rect x="101" y="-68" width="16" height="4" fill="#f97316"/>
+    <rect x="101" y="-64" width="16" height="4" fill="#ffffff"/>
+    <rect x="101" y="-60" width="16" height="4" fill="#16a34a"/>
+
+    <!-- Clear, Sparking Glass Windows -->
+    <rect x="25" y="25" width="26" height="28" rx="2" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+    <rect x="75" y="25" width="26" height="28" rx="2" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+    <rect x="150" y="25" width="26" height="28" rx="2" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/>
+
+    <!-- School Signboard -->
+    <rect x="55" y="6" width="90" height="12" rx="2" fill="#1e3a8a"/>
+    <text x="100" y="15" font-family="system-ui, sans-serif" font-size="6.5" font-weight="800" fill="#ffffff" text-anchor="middle">TISRA PRIMARY SCHOOL</text>
+  </g>
+
+  <!-- Healthy Green Sal & Eucalyptus Trees flanking the corridor -->
+  <g transform="translate(680, 160)">
+    <rect x="35" y="60" width="12" height="40" fill="#78350f"/>
+    <circle cx="41" cy="45" r="28" fill="#15803d"/>
+    <circle cx="28" cy="35" r="22" fill="#16a34a"/>
+    <circle cx="55" cy="32" r="24" fill="#22c55e"/>
+  </g>
+  <g transform="translate(410, 180)">
+    <rect x="25" y="45" width="8" height="30" fill="#78350f"/>
+    <circle cx="29" cy="35" r="20" fill="#15803d"/>
+    <circle cx="40" cy="25" r="18" fill="#22c55e"/>
+  </g>
+
+  <!-- Moist, Compacted, Dust-Free Transit Corridor Ground -->
+  <rect y="250" width="800" height="200" fill="url(#moistRoad)"/>
+
+  <!-- Haul Truck Driving on Moistened Road (Zero Dust Clouds) -->
+  <g transform="translate(420, 240) scale(0.65)">
+    <polygon points="50,110 250,90 280,30 40,50" fill="#09090b" stroke="#18181b" stroke-width="2"/>
+    <polygon points="260,90 320,90 330,130 330,150 260,150" fill="#eab308" stroke="#ca8a04" stroke-width="1.5"/>
+    <rect x="270" y="98" width="45" height="32" rx="4" fill="#38bdf8"/> <!-- Clean windshield! -->
+    <circle cx="85" cy="155" r="28" fill="#09090b"/>
+    <circle cx="165" cy="155" r="28" fill="#09090b"/>
+    <circle cx="295" cy="155" r="28" fill="#09090b"/>
+  </g>
+
+  <!-- NIT JAMSHEDPUR ULTRASONIC ELECTROSTATIC MIST CANNON BATTERY -->
+  <!-- Cannon Unit 1 (Front Left) -->
+  <g transform="translate(90, 200)">
+    <!-- Base mounting trailer & stabilizing outriggers -->
+    <rect x="15" y="105" width="100" height="22" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <circle cx="35" cy="130" r="14" fill="#0f172a" stroke="#475569" stroke-width="3"/>
+    <circle cx="95" cy="130" r="14" fill="#0f172a" stroke="#475569" stroke-width="3"/>
+
+    <!-- High-Pressure Ultrasonic Cannon Barrel (Angled up at 30 deg) -->
+    <g transform="rotate(-28, 65, 95)">
+      <!-- Cannon Housing Cylinders -->
+      <polygon points="40,80 145,72 145,118 40,110" fill="url(#cannonMetal)" stroke="#64748b" stroke-width="2"/>
+      <ellipse cx="40" cy="95" rx="10" ry="15" fill="#334155"/>
+      <ellipse cx="145" cy="95" rx="12" ry="23" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
+      
+      <!-- High-Frequency Electrostatic Atomizer Ring Nozzles -->
+      <circle cx="145" cy="80" r="3" fill="#38bdf8"/>
+      <circle cx="145" cy="90" r="3" fill="#38bdf8"/>
+      <circle cx="145" cy="100" r="3" fill="#38bdf8"/>
+      <circle cx="145" cy="110" r="3" fill="#38bdf8"/>
+
+      <!-- NIT Jamshedpur Label on Cannon Barrel -->
+      <rect x="65" y="90" width="55" height="12" rx="2" fill="#0284c7"/>
+      <text x="92" y="99" font-family="system-ui, sans-serif" font-size="7" font-weight="900" fill="#ffffff" text-anchor="middle">NIT JSR</text>
+
+      <!-- Atomized Ultrasonic Mist Plume Cone (Charging & Binding Airborne Dust) -->
+      <polygon points="146,72 390,-30 390,220 146,118" fill="url(#mistCone)"/>
+    </g>
+
+    <!-- Water & High-Voltage Electrostatic Supply Line -->
+    <path d="M 65 115 Q 40 145 20 155" stroke="#0284c7" stroke-width="4" fill="none"/>
+  </g>
+
+  <!-- Micro-Droplet Mist Shimmer Sparkles in Sunlight -->
+  <g opacity="0.8">
+    <circle cx="280" cy="160" r="2" fill="#ffffff"/>
+    <circle cx="320" cy="130" r="2.5" fill="#ffffff"/>
+    <circle cx="360" cy="180" r="2" fill="#ffffff"/>
+    <circle cx="410" cy="140" r="3" fill="#ffffff"/>
+    <circle cx="470" cy="170" r="2" fill="#ffffff"/>
+    <!-- Rainbow refraction arc in mist -->
+    <path d="M 280 140 Q 340 120 400 150" stroke="#fde047" stroke-width="1.5" fill="none" opacity="0.4"/>
+    <path d="M 280 143 Q 340 123 400 153" stroke="#38bdf8" stroke-width="1.5" fill="none" opacity="0.4"/>
+  </g>
+
+  <!-- Verified Solution Telemetry / Lab Results HUD Banner -->
+  <g transform="translate(480, 40)">
+    <rect width="280" height="92" rx="12" fill="#042f2e" fill-opacity="0.92" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="22" cy="24" r="8" fill="#10b981"/>
+    <path d="M 18 24 L 21 27 L 26 21" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="38" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#a7f3d0" letter-spacing="0.5">CLEAN AIR RESTORATION</text>
+    <text x="38" y="36" font-family="system-ui, sans-serif" font-size="9" fill="#6ee7b7">NIT Jamshedpur Clean Air &amp; Mining Sensors</text>
+
+    <!-- Stat 1: PM2.5 -->
+    <rect x="16" y="48" width="118" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+    <text x="24" y="60" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#a7f3d0">CURRENT PM2.5</text>
+    <text x="24" y="75" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#34d399">58 µg/m³</text>
+    <text x="96" y="74" font-family="system-ui, sans-serif" font-size="7.5" fill="#6ee7b7">(Safe Zone)</text>
+
+    <!-- Stat 2: Ambient Drop -->
+    <rect x="142" y="48" width="122" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+    <text x="150" y="60" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#a7f3d0">AMBIENT DROP</text>
+    <text x="150" y="75" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#34d399">84% Drop</text>
+    <text x="214" y="74" font-family="system-ui, sans-serif" font-size="7.5" fill="#6ee7b7">(-324 µg)</text>
+  </g>
+</svg>

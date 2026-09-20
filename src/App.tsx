@@ -8,6 +8,7 @@ import { CommandCenterScreen } from './components/CommandCenterScreen';
 import { HeatmapScreen } from './components/HeatmapScreen';
 import { ProjectsScreen } from './components/ProjectsScreen';
 import { ImpactGraphScreen } from './components/ImpactGraphScreen';
+import { ProblemDossierScreen, ProblemDossierData } from './components/ProblemDossierScreen';
 import { SubmitProblemModal } from './components/SubmitProblemModal';
 import { DossierModal } from './components/DossierModal';
 import { DistrictDossierModal } from './components/DistrictDossierModal';
@@ -15,11 +16,25 @@ import { SearchModal } from './components/SearchModal';
 import { NotificationsDrawer } from './components/NotificationsDrawer';
 import { LoadingScreen } from './components/LoadingScreen';
 
+import { ProcessFlowScreen } from './components/ProcessFlowScreen';
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<ScreenTab>('home');
   const [userRole, setUserRole] = useState<UserRole>('Citizen');
   const [language, setLanguage] = useState<Language>('en');
+
+  // Structured Problem Statement Dossier Page State
+  const [activeDossier, setActiveDossier] = useState<ProblemDossierData>({
+    docketId: 'JAN-RAN-2025-8355',
+    title: 'Deep Aquifer Arsenic Infiltration & Iron Precipitation in Namkum Block',
+    district: 'Ranchi',
+    block: 'Namkum (Kalyanpur Tola)',
+    category: 'Drinking Water & Heavy Metals',
+    dialect: 'Nagpuri',
+    description: 'Handpump water exhibited 4.8 mg/L Iron (permissible BIS limit: 0.3 mg/L) and high turbidity (28 NTU). Water was dark reddish-brown, causing severe skin dermatitis and gastrointestinal distress.',
+    timestamp: '20 Sep 2025',
+  });
 
   // Modals & Drawers
   const [selectedChallenge, setSelectedChallenge] = useState<Challenge | null>(null);
@@ -57,6 +72,24 @@ export default function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  const handleOpenDossierPage = (dossierData: Partial<ProblemDossierData>) => {
+    setActiveDossier((prev) => ({
+      ...prev,
+      ...dossierData,
+      docketId: dossierData.docketId || 'JAN-RAN-2025-8355',
+      title: dossierData.title || prev.title,
+      district: dossierData.district || prev.district,
+      block: dossierData.block || prev.block,
+      category: dossierData.category || prev.category,
+      dialect: dossierData.dialect || prev.dialect,
+      description: dossierData.description || prev.description,
+      photoUrl: dossierData.photoUrl || prev.photoUrl,
+    }));
+    setActiveTab('problem-dossier');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showToast(`✓ Opened Structured Problem Statement Dossier for Docket #${dossierData.docketId || 'JAN-RAN-2025-8355'}`);
+  };
 
   const handleTabChange = (tab: ScreenTab) => {
     if (tab === 'submit-problem') {
@@ -203,6 +236,39 @@ export default function App() {
         {activeTab === 'innovation-impact-graph' && (
           <ImpactGraphScreen onNavigateToProjects={() => setActiveTab('projects')} />
         )}
+
+        {/* Process Flow & Internal Workings (CPGRAMS Interactive Engine) */}
+        {activeTab === 'process-flow' && (
+          <ProcessFlowScreen
+            language={language}
+            onNavigateTab={handleTabChange}
+            onOpenReportModal={() => {
+              setSubmitModalInitialData(null);
+              setIsSubmitModalOpen(true);
+            }}
+          />
+        )}
+
+        {/* Structured Problem Statement & Cluster Dossier Full Page */}
+        {activeTab === 'problem-dossier' && (
+          <ProblemDossierScreen
+            language={language}
+            dossier={activeDossier}
+            onBackToHome={() => {
+              setActiveTab('home');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onNavigateToCommandCenter={() => {
+              setActiveTab('challenges');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            onOpenSubmitProblem={() => {
+              setSubmitModalInitialData(null);
+              setIsSubmitModalOpen(true);
+            }}
+            onShowToast={showToast}
+          />
+        )}
       </div>
 
       {/* Global Modals & Drawers */}
@@ -215,6 +281,7 @@ export default function App() {
         onSubmitSuccess={handleProblemSubmitSuccess}
         initialData={submitModalInitialData}
         onNavigateToCommandCenter={() => handleTabChange('challenges')}
+        onOpenDossierPage={handleOpenDossierPage}
       />
 
       <DossierModal

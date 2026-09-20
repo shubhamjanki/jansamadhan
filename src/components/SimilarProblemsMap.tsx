@@ -329,7 +329,7 @@ export const SimilarProblemsMap: React.FC<SimilarProblemsMapProps> = ({
 
         {/* Map Overlaid Detail Card (Bottom Right) */}
         {activeSelected && (
-          <div className="absolute bottom-3 right-3 max-w-xs sm:max-w-sm bg-primary/95 text-on-primary p-3.5 rounded-xl border border-white/20 shadow-2xl backdrop-blur-md z-30 animate-in fade-in slide-in-from-bottom-2 duration-200">
+          <div className="absolute bottom-2 left-2 right-2 sm:left-auto sm:right-3 sm:bottom-3 sm:max-w-sm bg-primary/95 text-on-primary p-3 sm:p-3.5 rounded-xl border border-white/20 shadow-2xl backdrop-blur-md z-30 animate-in fade-in slide-in-from-bottom-2 duration-200">
             <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-2 mb-2">
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />

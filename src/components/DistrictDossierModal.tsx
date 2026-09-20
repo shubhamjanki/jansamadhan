@@ -17,10 +17,10 @@ export const DistrictDossierModal: React.FC<DistrictDossierModalProps> = ({
   if (!isOpen || !district) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-surface-container-lowest rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl border border-surface-container-high flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-primary/70 backdrop-blur-sm animate-in fade-in duration-200">
+      <div className="bg-surface-container-lowest rounded-2xl w-full max-w-3xl max-h-[92vh] overflow-y-auto shadow-2xl border border-surface-container-high flex flex-col">
         {/* Header */}
-        <div className="bg-primary text-on-primary p-5 flex items-start justify-between border-b border-white/10">
+        <div className="bg-primary text-on-primary p-4 sm:p-5 flex items-start justify-between border-b border-white/10">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="bg-secondary-fixed text-primary font-label-sm text-[11px] font-bold px-2 py-0.5 rounded">
@@ -152,14 +152,14 @@ export const DistrictDossierModal: React.FC<DistrictDossierModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-4 bg-surface-container-low border-t border-surface-container-high flex items-center justify-between">
-          <span className="font-label-sm text-label-sm text-on-surface-variant">
+        <div className="p-3 sm:p-4 bg-surface-container-low border-t border-surface-container-high flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+          <span className="font-label-sm text-label-sm text-on-surface-variant text-center sm:text-left">
             Official GIS Census ID: <strong>JH-DIST-{district.rank.toString().padStart(2, '0')}</strong>
           </span>
           <div className="flex items-center gap-2">
             <button
               onClick={onClose}
-              className="px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer"
+              className="flex-1 sm:flex-initial px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-colors cursor-pointer text-center"
             >
               Close
             </button>
@@ -168,9 +168,9 @@ export const DistrictDossierModal: React.FC<DistrictDossierModalProps> = ({
                 onDeployRapidTeam(district.name);
                 onClose();
               }}
-              className="bg-secondary hover:bg-secondary/90 text-on-secondary px-5 py-2 rounded-lg font-label-md text-label-md transition-colors cursor-pointer font-bold shadow-xs"
+              className="flex-1 sm:flex-initial bg-secondary hover:bg-secondary/90 text-on-secondary px-4 sm:px-5 py-2 rounded-lg font-label-md text-label-md transition-colors cursor-pointer font-bold shadow-xs text-center"
             >
-              Dispatch State Innovation Taskforce
+              Dispatch Taskforce
             </button>
           </div>
         </div>

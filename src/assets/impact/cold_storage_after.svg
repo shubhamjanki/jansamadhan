@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Daylight Clean Sky Gradient -->
+    <linearGradient id="coolSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+
+    <!-- Clean Chilled Facility Floor -->
+    <linearGradient id="chillFloor" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="40%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Solar Panel Gloss Gradient -->
+    <linearGradient id="solarBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="40%" stop-color="#172554"/>
+      <stop offset="70%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Bamboo Exterior Cladding Pattern -->
+    <linearGradient id="bambooWood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="25%" stop-color="#b45309"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="75%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+
+    <!-- PCM Thermal Battery Blue Cold Glow -->
+    <radialGradient id="pcmColdGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#0284c7" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0369a1" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Fresh Plump Ripe Tomato Gradient -->
+    <radialGradient id="freshTomato" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="35%" stop-color="#ef4444"/>
+      <stop offset="80%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#coolSky)"/>
+
+  <!-- Sun with clean solar aura -->
+  <circle cx="150" cy="80" r="30" fill="#fef08a" opacity="0.9"/>
+
+  <!-- Clean Ground Platform -->
+  <rect y="270" width="800" height="180" fill="url(#chillFloor)"/>
+
+  <!-- IIT ISM DHANBAD SOLAR MICRO COLD ROOM POD -->
+  <g transform="translate(140, 110)">
+    <!-- Pod Main Shell (Bamboo Insulation Cladding) -->
+    <rect x="0" y="40" width="450" height="230" rx="16" fill="url(#bambooWood)" stroke="#78350f" stroke-width="3"/>
+    
+    <!-- Bamboo Slats Visual Lines -->
+    <line x1="30" y1="40" x2="30" y2="270" stroke="#78350f" stroke-width="1.5" opacity="0.5"/>
+    <line x1="60" y1="40" x2="60" y2="270" stroke="#78350f" stroke-width="1.5" opacity="0.5"/>
+    <line x1="90" y1="40" x2="90" y2="270" stroke="#78350f" stroke-width="1.5" opacity="0.5"/>
+    <line x1="360" y1="40" x2="360" y2="270" stroke="#78350f" stroke-width="1.5" opacity="0.5"/>
+    <line x1="390" y1="40" x2="390" y2="270" stroke="#78350f" stroke-width="1.5" opacity="0.5"/>
+    <line x1="420" y1="40" x2="420" y2="270" stroke="#78350f" stroke-width="1.5" opacity="0.5"/>
+
+    <!-- Rooftop Solar PV Panels (High Efficiency Monocrystalline) -->
+    <polygon points="-10,40 220,10 460,40" fill="#0f172a"/>
+    <polygon points="10,38 220,12 440,38" fill="url(#solarBlue)" stroke="#60a5fa" stroke-width="1.5"/>
+    <!-- Solar grid lines -->
+    <line x1="80" y1="34" x2="220" y2="15" stroke="#93c5fd" stroke-width="1" opacity="0.7"/>
+    <line x1="150" y1="36" x2="220" y2="18" stroke="#93c5fd" stroke-width="1" opacity="0.7"/>
+    <line x1="290" y1="36" x2="220" y2="18" stroke="#93c5fd" stroke-width="1" opacity="0.7"/>
+    <line x1="360" y1="34" x2="220" y2="15" stroke="#93c5fd" stroke-width="1" opacity="0.7"/>
+    <line x1="120" y1="23" x2="320" y2="23" stroke="#93c5fd" stroke-width="1" opacity="0.6"/>
+
+    <!-- Green Solar Active Indicator LED -->
+    <circle cx="430" cy="55" r="5" fill="#22c55e"/>
+    <circle cx="430" cy="55" r="9" fill="#22c55e" opacity="0.4"/>
+
+    <!-- Insulated Viewing Window into Chilled Storage Interior -->
+    <rect x="70" y="70" width="310" height="175" rx="10" fill="#0c4a6e" stroke="#38bdf8" stroke-width="2.5"/>
+    
+    <!-- PCM Cold Thermal Glow inside chamber -->
+    <ellipse cx="225" cy="155" rx="140" ry="70" fill="url(#pcmColdGlow)"/>
+
+    <!-- PCM (Phase Change Material) Ceiling Battery Plates -->
+    <rect x="90" y="80" width="270" height="16" rx="4" fill="#0284c7" stroke="#7dd3fc" stroke-width="1.5"/>
+    <text x="225" y="92" font-family="system-ui, sans-serif" font-size="8" font-weight="900" fill="#e0f2fe" text-anchor="middle" letter-spacing="1">PCM EUTECTIC THERMAL BATTERY • 4°C</text>
+
+    <!-- Cool Thermal Mist Vapor Waves -->
+    <path d="M 90 120 Q 150 110 220 125 T 350 120" stroke="#bae6fd" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M 100 140 Q 170 130 240 145 T 340 135" stroke="#bae6fd" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+    <!-- Crates of Pristine, Fresh, Crisp Produce inside Cold Pod -->
+    <!-- Tomato Crate -->
+    <g transform="translate(100, 140)">
+      <rect width="130" height="75" rx="4" fill="#854d0e" stroke="#543825" stroke-width="2"/>
+      <line x1="0" y1="25" x2="130" y2="25" stroke="#543825" stroke-width="1.5"/>
+      <line x1="0" y1="50" x2="130" y2="50" stroke="#543825" stroke-width="1.5"/>
+
+      <!-- Plump, glossy, dewy fresh red tomatoes -->
+      <circle cx="25" cy="18" r="14" fill="url(#freshTomato)"/>
+      <circle cx="55" cy="15" r="15" fill="url(#freshTomato)"/>
+      <circle cx="85" cy="16" r="15" fill="url(#freshTomato)"/>
+      <circle cx="110" cy="20" r="13" fill="url(#freshTomato)"/>
+      <!-- Green calyx star on top -->
+      <path d="M 55 5 L 53 10 L 57 10 Z" fill="#22c55e"/>
+      <circle cx="58" cy="12" r="2.5" fill="#ffffff" opacity="0.75"/>
+      <circle cx="28" cy="14" r="2" fill="#ffffff" opacity="0.75"/>
+      <circle cx="88" cy="13" r="2.5" fill="#ffffff" opacity="0.75"/>
+    </g>
+
+    <!-- Green Peas / Vegetables Crate -->
+    <g transform="translate(245, 145)">
+      <rect width="120" height="70" rx="4" fill="#78350f" stroke="#451a03" stroke-width="2"/>
+      <line x1="0" y1="24" x2="120" y2="24" stroke="#451a03" stroke-width="1.5"/>
+      <line x1="0" y1="48" x2="120" y2="48" stroke="#451a03" stroke-width="1.5"/>
+
+      <!-- Crisp, vibrant sugar snap pea pods -->
+      <path d="M 15 15 Q 40 5 65 18 Q 40 22 15 15" fill="#22c55e"/>
+      <path d="M 45 12 Q 75 0 100 15 Q 75 22 45 12" fill="#16a34a"/>
+      <path d="M 70 18 Q 95 8 115 22 Q 95 28 70 18" fill="#4ade80"/>
+      <!-- Dew droplets -->
+      <circle cx="45" cy="10" r="1.5" fill="#ffffff" opacity="0.9"/>
+      <circle cx="75" cy="10" r="1.5" fill="#ffffff" opacity="0.9"/>
+    </g>
+
+    <!-- IIT ISM Dhanbad Emblem on Pod -->
+    <circle cx="35" cy="80" r="18" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="35" y="79" font-family="system-ui, sans-serif" font-size="6.5" font-weight="900" fill="#f59e0b" text-anchor="middle">IIT ISM</text>
+    <text x="35" y="88" font-family="system-ui, sans-serif" font-size="5" font-weight="700" fill="#ffffff" text-anchor="middle">DHANBAD</text>
+  </g>
+
+  <!-- Verified Solution Telemetry / Lab Results HUD Banner -->
+  <g transform="translate(480, 40)">
+    <rect width="280" height="92" rx="12" fill="#042f2e" fill-opacity="0.92" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="22" cy="24" r="8" fill="#10b981"/>
+    <path d="M 18 24 L 21 27 L 26 21" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="38" y="24" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#a7f3d0" letter-spacing="0.5">COLD CHAIN PRESERVATION</text>
+    <text x="38" y="36" font-family="system-ui, sans-serif" font-size="9" fill="#6ee7b7">IIT ISM Dhanbad Thermal &amp; Solar Lab</text>
+
+    <!-- Stat 1: Storage Temp -->
+    <rect x="16" y="48" width="118" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+    <text x="24" y="60" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#a7f3d0">STORAGE TEMP</text>
+    <text x="24" y="75" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#34d399">4.0°C</text>
+    <text x="75" y="74" font-family="system-ui, sans-serif" font-size="7.5" fill="#6ee7b7">(Off-Grid 22h)</text>
+
+    <!-- Stat 2: Shelf Life -->
+    <rect x="142" y="48" width="122" height="34" rx="6" fill="#064e3b" stroke="#059669" stroke-width="1"/>
+    <text x="150" y="60" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#a7f3d0">RETENTION RATE</text>
+    <text x="150" y="75" font-family="system-ui, sans-serif" font-size="13" font-weight="900" fill="#34d399">96% Fresh</text>
+    <text x="222" y="74" font-family="system-ui, sans-serif" font-size="7.5" fill="#6ee7b7">(14-Day)</text>
+  </g>
+</svg>

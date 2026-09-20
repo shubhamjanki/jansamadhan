@@ -188,7 +188,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       photoUrl: hasUploadedPhoto
         ? 'https://lh3.googleusercontent.com/aida-public/AB6AXuDVs1KxTJut34izNR6-BSK0ohQqvO9Q-SWWgPeE5PN4mgTK5NdQUYVfi1YkT2p-Zmdk2SDUjoU1hDy5efAyAaDBxEmjuplpvQZYdRBLMS_4ZocwApcfsq81CDFkAb2G4KQSBVagdC55YjLfAJtXO5l96INaCAOspSEaxbjHTiQP5SvnyBnCZaK3XilR5XR-GysvcrooWzMW4paHSstB9g64iHoQXkoiSJS9FEZ4yQfcHFmP_1hPS0CD6g'
         : undefined,
-      autoStartProcessing: true,
+      autoStartProcessing: false,
     });
   };
 
@@ -294,7 +294,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         HERO & BANNER: JAN SAMADHAN — CINEMATIC FULL-BLEED CAMPUS HERO
         ========================================================================
       */}
-      <section className="relative w-full overflow-hidden min-h-[90vh] flex flex-col justify-end text-on-primary">
+      <section className="relative w-full overflow-hidden min-h-[70vh] sm:min-h-[90vh] flex flex-col justify-end text-on-primary">
         {/* Full-bleed campus background */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -340,7 +340,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               </div>
 
               {/* Main headline */}
-              <h1 className="text-white font-black tracking-tight leading-[1.1] text-4xl sm:text-5xl lg:text-[3.5rem] drop-shadow-xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              <h1 className="text-white font-black tracking-tight leading-[1.1] text-3xl sm:text-5xl lg:text-[3.5rem] drop-shadow-xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 {language === 'hi' ? (
                   <>
                     <span className="text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.9)]">जन समाधान:</span>{' '}
@@ -377,7 +377,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <a
                   href="#register-problem"
                   id="hero-quick-report-btn"
-                  className="group relative overflow-hidden bg-[#FF9933] hover:bg-[#e8871a] text-white px-8 py-4 rounded-2xl font-bold text-base transition-all shadow-2xl shadow-orange-500/40 flex items-center gap-2.5 cursor-pointer border border-amber-300/50"
+                  className="group relative overflow-hidden bg-[#FF9933] hover:bg-[#e8871a] text-white px-5 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold text-sm sm:text-base transition-all shadow-2xl shadow-orange-500/40 flex items-center gap-2.5 cursor-pointer border border-amber-300/50"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -387,7 +387,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <a
                   href="#track-problem"
                   id="hero-track-btn"
-                  className="bg-white/10 hover:bg-white/20 text-white px-6 py-4 rounded-2xl font-semibold text-base backdrop-blur-md transition-all flex items-center gap-2 cursor-pointer border border-white/25 shadow-lg"
+                  className="bg-white/10 hover:bg-white/20 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base backdrop-blur-md transition-all flex items-center gap-2 cursor-pointer border border-white/25 shadow-lg"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
                   <span className="material-symbols-outlined text-amber-300">track_changes</span>
@@ -494,16 +494,16 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* Left: Problem Registration Form */}
             <div className="lg:col-span-8 bg-surface rounded-2xl p-6 sm:p-8 shadow-sm border border-surface-container-high flex flex-col gap-6">
               <form onSubmit={handleQuickSubmitProblem} className="flex flex-col gap-6">
-                <div className="flex items-center justify-between border-b border-surface-container-high pb-4">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-surface-container-high pb-4 gap-3">
                   <div className="flex items-center gap-2.5">
-                    <span className="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center font-bold">
+                    <span className="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center font-bold shrink-0">
                       <span className="material-symbols-outlined text-[18px]">edit_note</span>
                     </span>
-                    <div>
-                      <h3 className="font-headline-md text-headline-md text-primary font-bold">
+                    <div className="min-w-0">
+                      <h3 className="font-headline-md text-headline-md text-primary font-bold truncate">
                         {language === 'hi' ? 'नागरिक समस्या पंजीकरण प्रपत्र' : 'New Problem Registration Form'}
                       </h3>
-                      <span className="text-[11px] text-on-surface-variant">No bureaucratic delays • Straight to university research team</span>
+                      <span className="text-[11px] text-on-surface-variant hidden sm:inline">No bureaucratic delays • Straight to university research team</span>
                     </div>
                   </div>
                   <button
@@ -1135,14 +1135,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 <div className="absolute inset-0 bg-primary/25 backdrop-brightness-95 pointer-events-none"></div>
 
                 {/* Top Badge: Satellite Source & Legend */}
-                <div className="relative z-10 flex items-center justify-between flex-wrap gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-white text-xs">
+                <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-white text-xs">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span className="font-semibold text-[11px] uppercase tracking-wider text-tertiary-fixed">
                       JSAC Satellite GIS Layer • Live Blinking Hotzones
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 text-[11px]">
+                  <div className="flex items-center gap-3 text-[10px] sm:text-[11px] flex-wrap">
                     <span className="flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span> Level 4 (Critical)
                     </span>
@@ -1547,14 +1547,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
                 {/* Institute & Solution Details */}
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs bg-surface-container-low p-2.5 rounded-lg border border-surface-container-high/60">
-                    <span className="text-on-surface-variant">Winning Institute:</span>
-                    <span className="font-bold text-primary">{award.instituteName}</span>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs bg-surface-container-low p-2.5 rounded-lg border border-surface-container-high/60 gap-1">
+                    <span className="text-on-surface-variant shrink-0">Winning Institute:</span>
+                    <span className="font-bold text-primary truncate max-w-full">{award.instituteName}</span>
                   </div>
 
-                  <div className="flex items-center justify-between text-xs bg-surface-container-low p-2.5 rounded-lg border border-surface-container-high/60">
-                    <span className="text-on-surface-variant">Winning Solution:</span>
-                    <span className="font-bold text-secondary">{award.solutionName}</span>
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs bg-surface-container-low p-2.5 rounded-lg border border-surface-container-high/60 gap-1">
+                    <span className="text-on-surface-variant shrink-0">Winning Solution:</span>
+                    <span className="font-bold text-secondary truncate max-w-full">{award.solutionName}</span>
                   </div>
 
                   <p className="text-xs text-on-surface-variant leading-relaxed italic pt-1">
